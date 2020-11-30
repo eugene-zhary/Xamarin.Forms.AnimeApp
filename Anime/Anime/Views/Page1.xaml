@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Anime.Views.Page1"
+             BackgroundColor="#1D1D1B">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Рекомендации" StyleClass="recomendationButton"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

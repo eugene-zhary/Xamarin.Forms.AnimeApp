@@ -1,0 +1,15 @@
+﻿.shellStyle {
+    -xf-shell-tabbar-background: #272726;
+    -xf-shell-tabbar-unselected: #941E82;
+    -xf-shell-tabbar-title: #B8A4CF;
+}
+
+.recomendationButton {
+    font-size: 16;
+    color: #B8A4CF;
+    background-color: #1D1D1B;
+    border-color: #941E82;
+    border-radius: 15;
+    border-width: 3;
+    margin: 50;
+}
