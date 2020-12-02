@@ -32,7 +32,7 @@ namespace Anime.Droid.Renderers
 				var borderRadius = button.CornerRadius * density;
 				var borderWidth = button.BorderWidth * density;
 
-				// обычное состояние кнопки
+				//обычное состояние кнопки
 				normal = new GradientDrawable();
 				normal.SetColor(button.BackgroundColor.ToAndroid());
 				normal.SetStroke((int)borderWidth, button.BorderColor.ToAndroid());
@@ -41,13 +41,13 @@ namespace Anime.Droid.Renderers
 				//понижение яркости BackgroundColor кнопки на 5 процентов
 				var highlight = button.BackgroundColor.AddLuminosity(-0.05).ToAndroid();
 				
-				// нажатое состояние кнопки
+				//нажатое состояние кнопки
 				pressed = new GradientDrawable();
 				pressed.SetColor(highlight);
 				pressed.SetStroke((int)borderWidth, button.BorderColor.ToAndroid());
 				pressed.SetCornerRadius(borderRadius);
 
-				// лист состояний
+				//лист состояний
 				var sld = new StateListDrawable();
 				sld.AddState(new int[] { Android.Resource.Attribute.StatePressed }, pressed);
 				sld.AddState(new int[] { }, normal);

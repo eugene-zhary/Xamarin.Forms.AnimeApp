@@ -5,11 +5,25 @@
 }
 
 .recomendationButton {
-    font-size: 16;
+    font-size: 18;
+    height: 65;
     color: #B8A4CF;
     background-color: #1D1D1B;
     border-color: #941E82;
     border-radius: 15;
-    border-width: 3;
-    margin: 50;
+    border-width: 4;
+    margin: 30 30 20 30;
+}
+
+.topFrame {
+    font-style: bold;
+    background-color: #1D1D1B;
+    padding: 15 35 0 35;
+}
+
+label {
+    color: #941E82;
+    font-size: 16;
+    font-weight: bold;
+    font-family: 'Consolas';
 }
