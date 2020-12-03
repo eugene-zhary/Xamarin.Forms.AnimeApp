@@ -16,15 +16,36 @@
 
             <controls:XFrame Grid.Row="1" StyleClass="topFrame"
                              MultiCornerRadius="15,15,0,0">
+
                 <StackLayout>
+
                     <Label Text="TOP 100"/>
-                    
-                    <ListView>
-                        
-                    </ListView>
+
+                    <ScrollView>
+                        <controls:RepeaterView ItemsSource="{Binding TestItems}"
+                                           Wrap="Wrap" AlignItems="Center">
+                            <controls:RepeaterView.ItemsTemplate>
+                                <DataTemplate>
+                                    <Frame BorderColor="#941E82" Padding="1" Margin="5">
+                                        <StackLayout BackgroundColor="#1D1D1B">
+                                            <Image Source="{Binding ImgPath}"
+                                               WidthRequest="160" HeightRequest="180"
+                                               Aspect="AspectFill"/>
+                                            <Label Text="{Binding Title}" HorizontalOptions="Center"/>
+                                            <Label Text="{Binding Rating, StringFormat='Rate: {0}'}" HorizontalOptions="Center"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </DataTemplate>
+                            </controls:RepeaterView.ItemsTemplate>
+                        </controls:RepeaterView>
+                    </ScrollView>
                 </StackLayout>
+                
+                
+                
+
             </controls:XFrame>
-            
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>
