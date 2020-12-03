@@ -11,28 +11,32 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
+            
             <Button Text="Рекомендации" StyleClass="recomendationButton"/>
 
-
+            
             <controls:XFrame Grid.Row="1" StyleClass="topFrame"
                              MultiCornerRadius="15,15,0,0">
-
                 <StackLayout>
+                    
+                    <!-- panel description -->
+                    <Label Text="TOP 100" StyleClass="topLabel"/>
 
-                    <Label Text="TOP 100"/>
-
+                    <!-- main panel -->
                     <ScrollView>
-                        <controls:RepeaterView ItemsSource="{Binding TestItems}"
-                                           Wrap="Wrap" AlignItems="Center">
+                        <controls:RepeaterView ItemsSource="{Binding TestItems}" StyleClass="itemsPanel">
                             <controls:RepeaterView.ItemsTemplate>
                                 <DataTemplate>
-                                    <Frame BorderColor="#941E82" Padding="1" Margin="5">
-                                        <StackLayout BackgroundColor="#1D1D1B">
-                                            <Image Source="{Binding ImgPath}"
-                                               WidthRequest="160" HeightRequest="180"
-                                               Aspect="AspectFill"/>
-                                            <Label Text="{Binding Title}" HorizontalOptions="Center"/>
-                                            <Label Text="{Binding Rating, StringFormat='Rate: {0}'}" HorizontalOptions="Center"/>
+                                    <Frame StyleClass="itemFrame" >
+                                        <StackLayout>
+                                            
+                                            <Image Source="{Binding ImgPath}" Aspect="AspectFill"
+                                                   StyleClass="itemImg"/>
+                                            <Label Text="{Binding Title}" 
+                                                   StyleClass="itemLabel"/>
+                                            <Label Text="{Binding Rating, StringFormat='Rate: {0}'}" 
+                                                   StyleClass="itemLabel"/>
+                                            
                                         </StackLayout>
                                     </Frame>
                                 </DataTemplate>
@@ -40,10 +44,6 @@
                         </controls:RepeaterView>
                     </ScrollView>
                 </StackLayout>
-                
-                
-                
-
             </controls:XFrame>
 
         </Grid>
