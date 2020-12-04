@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
@@ -14,8 +15,6 @@ using System.Linq;
 using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
-
-
 
 [assembly: ExportRenderer(typeof(XFrame), typeof(XFrameRenderer))]
 namespace Anime.Droid.Renderers
@@ -34,12 +33,31 @@ namespace Anime.Droid.Renderers
                 UpdateCornerRadius();
             }
         }
+        
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(XFrame.CornerRadius) || e.PropertyName == nameof(XFrame)) {
                 UpdateCornerRadius();
             }
         }
+
+        public override void Draw(Canvas canvas)
+        {
+            base.Draw(canvas);
+
+            var view = (XFrame)Element;
+            if (view.BorderWidth > 0) {
+
+                using Paint strokePaint = new Paint();
+                using RectF rect = new RectF(0, 0, canvas.Width, canvas.Height);
+
+                strokePaint.SetStyle(Paint.Style.Stroke);
+                strokePaint.Color = view.BorderColor.ToAndroid();
+                strokePaint.StrokeWidth = view.BorderWidth;
+                canvas.DrawRoundRect(rect, Element.CornerRadius * 2, Element.CornerRadius * 2, strokePaint);
+            }
+        }
+
 
         private void UpdateCornerRadius()
         {
@@ -76,5 +94,8 @@ namespace Anime.Droid.Renderers
 
             this.SetBackground(backgroundGradient);
         }
+
+
+
     }
 }

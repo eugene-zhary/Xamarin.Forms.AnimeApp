@@ -11,14 +11,11 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            
             <Button Text="Рекомендации" StyleClass="recomendationButton"/>
 
-            
             <controls:XFrame Grid.Row="1" StyleClass="topFrame"
                              MultiCornerRadius="15,15,0,0">
                 <StackLayout>
-                    
                     <!-- panel description -->
                     <Label Text="TOP 100" StyleClass="topLabel"/>
 
@@ -27,18 +24,20 @@
                         <controls:RepeaterView ItemsSource="{Binding TestItems}" StyleClass="itemsPanel">
                             <controls:RepeaterView.ItemsTemplate>
                                 <DataTemplate>
-                                    <Frame StyleClass="itemFrame" >
-                                        <StackLayout>
-                                            
+                                    <controls:XFrame StyleClass="itemFrame" BorderWidth="8">
+                                        <StackLayout Spacing="0">
                                             <Image Source="{Binding ImgPath}" Aspect="AspectFill"
                                                    StyleClass="itemImg"/>
+                                            
+                                            <Line Stroke="#941E82" StrokeThickness="8" X2="165" />
+
                                             <Label Text="{Binding Title}" 
                                                    StyleClass="itemLabel"/>
                                             <Label Text="{Binding Rating, StringFormat='Rate: {0}'}" 
                                                    StyleClass="itemLabel"/>
-                                            
+
                                         </StackLayout>
-                                    </Frame>
+                                    </controls:XFrame>
                                 </DataTemplate>
                             </controls:RepeaterView.ItemsTemplate>
                         </controls:RepeaterView>
