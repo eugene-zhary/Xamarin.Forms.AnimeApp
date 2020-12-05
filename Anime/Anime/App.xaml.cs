@@ -11,7 +11,7 @@ namespace Anime
         {
             InitializeComponent();
 
-            MainPage = new MainView();
+            MainPage = new ShellView();
         }
 
         protected override void OnStart()

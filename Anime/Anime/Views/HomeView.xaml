@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Anime.Controls"
-             x:Class="Anime.Views.Page1"
+             x:Class="Anime.Views.HomeView"
              BackgroundColor="#313130 ">
     <ContentPage.Content>
         <Grid>
@@ -23,22 +23,22 @@
                     <ScrollView>
                         <controls:RepeaterView ItemsSource="{Binding TestItems}" StyleClass="itemsPanel">
                             <controls:RepeaterView.ItemsTemplate>
+                                
                                 <DataTemplate>
                                     <controls:XFrame StyleClass="itemFrame" BorderWidth="8">
                                         <StackLayout Spacing="0">
-                                            <Image Source="{Binding ImgPath}" Aspect="AspectFill"
+                                            <controls:XFrame StyleClass="itemFrame" BorderWidth="8" Margin="0">
+                                                <Image Source="{Binding ImgPath}" Aspect="AspectFill"
                                                    StyleClass="itemImg"/>
-                                            
-                                            <Line Stroke="#941E82" StrokeThickness="8" X2="165" />
-
+                                            </controls:XFrame>
                                             <Label Text="{Binding Title}" 
                                                    StyleClass="itemLabel"/>
                                             <Label Text="{Binding Rating, StringFormat='Rate: {0}'}" 
                                                    StyleClass="itemLabel"/>
-
                                         </StackLayout>
                                     </controls:XFrame>
                                 </DataTemplate>
+                                
                             </controls:RepeaterView.ItemsTemplate>
                         </controls:RepeaterView>
                     </ScrollView>

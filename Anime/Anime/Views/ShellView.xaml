@@ -2,18 +2,18 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:views="clr-namespace:Anime.Views"
-       x:Class="Anime.Views.MainView"
+       x:Class="Anime.Views.ShellView"
        Shell.NavBarIsVisible="False"
        StyleClass="shellStyle">
     <TabBar >
         <Tab Icon="ic_home.png">
-            <ShellContent ContentTemplate="{DataTemplate views:Page1}"/>
+            <ShellContent ContentTemplate="{DataTemplate views:HomeView}"/>
         </Tab>
         <Tab Icon="ic_search.png">
-            <ShellContent ContentTemplate="{DataTemplate views:Page2}"/>
+            <ShellContent ContentTemplate="{DataTemplate views:SearchView}"/>
         </Tab>
         <Tab Icon="ic_person.png">
-            <ShellContent ContentTemplate="{DataTemplate views:Page3}"/>
+            <ShellContent ContentTemplate="{DataTemplate views:ProfileView}"/>
         </Tab>
     </TabBar>
 </Shell>

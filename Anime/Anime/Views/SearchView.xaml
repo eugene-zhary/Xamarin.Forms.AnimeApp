@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Anime.Views.Page2"
+             x:Class="Anime.Views.SearchView"
              BackgroundColor="#1D1D1B">
     <ContentPage.Content>
         <Label TextColor="#941E82" Text="coming soon page 2..." FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center"/>

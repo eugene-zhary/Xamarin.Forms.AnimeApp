@@ -5,9 +5,9 @@ using Xamarin.Forms.Xaml;
 namespace Anime.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page1 : ContentPage
+    public partial class HomeView : ContentPage
     {
-        public Page1()
+        public HomeView()
         {
             InitializeComponent();
             BindingContext = new FirstPageViewModel();

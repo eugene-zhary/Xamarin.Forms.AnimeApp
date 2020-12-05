@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Anime.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page3 : ContentPage
+    public partial class SearchView : ContentPage
     {
-        public Page3()
+        public SearchView()
         {
             InitializeComponent();
         }
