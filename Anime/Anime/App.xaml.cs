@@ -10,8 +10,9 @@ namespace Anime
         public App()
         {
             InitializeComponent();
+            Bootstrapper.Init();
 
-            MainPage = new ShellView();
+            MainPage = Resolver.Resolve<ShellView>();
         }
 
         protected override void OnStart()

@@ -16,8 +16,6 @@ namespace Anime.Views
         public ShellView()
         {
             InitializeComponent();
-
-
         }
     }
 }
