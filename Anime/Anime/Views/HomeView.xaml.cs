@@ -10,7 +10,7 @@ namespace Anime.Views
         public HomeView()
         {
             InitializeComponent();
-            BindingContext = new FirstPageViewModel();
+            BindingContext = new HomePageViewModel();
         }
     }
 }

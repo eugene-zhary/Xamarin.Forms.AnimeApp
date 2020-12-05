@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace Anime.Controls
 {
-    public class RepeaterView : FlexLayout
+    public class FlexableView : FlexLayout
     {
         private DataTemplate itemsTemplate;
         public DataTemplate ItemsTemplate {
@@ -18,9 +18,9 @@ namespace Anime.Controls
         }
 
         public static BindableProperty ItemsSourceProperty = 
-            BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable<object>), typeof(RepeaterView),
+            BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable<object>), typeof(FlexableView),
                 propertyChanged: (bindable, oldValue, newValue) => {
-                    var repeater = (RepeaterView)bindable;
+                    var repeater = (FlexableView)bindable;
                     if (repeater.itemsTemplate == null)
                         return;
                     MainThread.BeginInvokeOnMainThread(() => repeater.Generate());

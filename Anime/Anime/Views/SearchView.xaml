@@ -2,8 +2,68 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Anime.Views.SearchView"
-             BackgroundColor="#1D1D1B">
+             xmlns:controls="clr-namespace:Anime.Controls"
+             BackgroundColor="#272726">
     <ContentPage.Content>
-        <Label TextColor="#941E82" Text="coming soon page 2..." FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <Entry StyleClass="searchEntry" Placeholder="Поиск"/>
+
+
+            <controls:XFrame Grid.Row="1" MultiCornerRadius="15,15,0,0" StyleClass="topFrame" BackgroundColor="#313130" Padding="20">
+                <StackLayout>
+                    <Label Text="ВИДЫ" StyleClass="headerLabel"/>
+                    
+                    <ScrollView>
+                        <controls:FlexableView ItemsSource="{Binding AnimeTypes}" StyleClass="itemsPanel">
+                            <controls:FlexableView.ItemsTemplate>
+                                <DataTemplate>
+                                    <controls:XFrame StyleClass="itemFrame" BorderWidth="8">
+                                        <Label Text="{Binding}" StyleClass="itemLabel"
+                                               WidthRequest="100" HeightRequest="55"
+                                               VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                    </controls:XFrame>
+                                </DataTemplate>
+                            </controls:FlexableView.ItemsTemplate>
+                        </controls:FlexableView>
+                    </ScrollView>
+                    
+                </StackLayout>
+            </controls:XFrame>
+
+            <controls:XFrame Grid.Row="2" MultiCornerRadius="15,15,0,0" Margin="0,-15,0,0" StyleClass="topFrame">
+                <StackLayout>
+                    <Label Text="ЖАНРЫ" StyleClass="headerLabel"/>
+
+                    <ScrollView>
+                        <controls:FlexableView ItemsSource="{Binding AnimeGenres}" StyleClass="itemsPanel">
+                            <controls:FlexableView.ItemsTemplate>
+                                <DataTemplate>
+                                    <controls:XFrame StyleClass="itemFrame" BorderWidth="8">
+                                        <Label Text="{Binding}" StyleClass="itemLabel"
+                                           WidthRequest="100" HeightRequest="55"
+                                           VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                    </controls:XFrame>
+                                </DataTemplate>
+                            </controls:FlexableView.ItemsTemplate>
+                        </controls:FlexableView>
+                    </ScrollView>
+                    
+                </StackLayout>
+            </controls:XFrame>
+            
+            
+
+        </Grid>
+
+
+
+
     </ContentPage.Content>
 </ContentPage>

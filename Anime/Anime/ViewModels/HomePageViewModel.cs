@@ -6,11 +6,11 @@ using System.Text;
 
 namespace Anime.ViewModels
 {
-    public class FirstPageViewModel : ViewModel
+    public class HomePageViewModel : ViewModel
     {
         public ObservableCollection<WrapedItemModel> TestItems { get; set; }
 
-        public FirstPageViewModel()
+        public HomePageViewModel()
         {
             TestItems = new ObservableCollection<WrapedItemModel>() {
                 new WrapedItemModel(){ImgPath="naruto.jpg" ,Title = "naruto", Rating="8/10"},

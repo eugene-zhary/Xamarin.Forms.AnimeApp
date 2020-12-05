@@ -15,14 +15,14 @@
 
             <controls:XFrame Grid.Row="1" StyleClass="topFrame"
                              MultiCornerRadius="15,15,0,0">
-                <StackLayout>
+                <StackLayout> 
                     <!-- panel description -->
-                    <Label Text="TOP 100" StyleClass="topLabel"/>
+                    <Label Text="ТОП 100" StyleClass="headerLabel"/>
 
                     <!-- main panel -->
                     <ScrollView>
-                        <controls:RepeaterView ItemsSource="{Binding TestItems}" StyleClass="itemsPanel">
-                            <controls:RepeaterView.ItemsTemplate>
+                        <controls:FlexableView ItemsSource="{Binding TestItems}" StyleClass="itemsPanel">
+                            <controls:FlexableView.ItemsTemplate>
                                 
                                 <DataTemplate>
                                     <controls:XFrame StyleClass="itemFrame" BorderWidth="8">
@@ -39,8 +39,8 @@
                                     </controls:XFrame>
                                 </DataTemplate>
                                 
-                            </controls:RepeaterView.ItemsTemplate>
-                        </controls:RepeaterView>
+                            </controls:FlexableView.ItemsTemplate>
+                        </controls:FlexableView>
                     </ScrollView>
                 </StackLayout>
             </controls:XFrame>

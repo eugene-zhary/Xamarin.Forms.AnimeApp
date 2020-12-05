@@ -1,4 +1,5 @@
-﻿.shellStyle {
+﻿/*HOME PAGE STYLE*/
+.shellStyle {
     -xf-shell-tabbar-background: #313130;
     -xf-shell-tabbar-unselected: #941E82;
     -xf-shell-tabbar-title: #B8A4CF;
@@ -21,9 +22,10 @@
     font-style: bold;
     background-color: #272726;
     padding: 20 20 0 20;
+    margin: 0;
 }
 
-.topLabel {
+.headerLabel {
     color: #941E82;
     font-size: 16;
     font-weight: bold;
@@ -52,3 +54,13 @@
     margin: 0 0 0 5;
     font-size: 13;
 }
+
+/*SEARCH PAGE STYLE*/
+
+.searchEntry {
+    margin: 30 30 20 30;
+    height: 65;
+    font-size: 18;
+}
+
+
