@@ -1,15 +1,19 @@
-﻿using System;
+﻿using Anime.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Anime.ViewModels
 {
     public class SearchViewModel : ViewModel
     {
+        public event EventHandler<string> SelectionChangedEv;
+
         public ObservableCollection<string> AnimeTypes { get; set; }
         public ObservableCollection<string> AnimeGenres { get; set; }
-
 
         public SearchViewModel()
         {
@@ -42,5 +46,10 @@ namespace Anime.ViewModels
                 "Мистика",
             };
         }
+
+        public ICommand TappedOnItem => new Command((item) => {
+            if(item is string title)
+                SelectionChangedEv?.Invoke(this, title);
+        });
     }
 }

@@ -17,7 +17,14 @@ namespace Anime.Views
         {
             InitializeComponent();
 
-            this.BindingContext = new SearchViewModel();
+            SearchViewModel vm = new SearchViewModel();
+            vm.SelectionChangedEv += Vm_SelectionChangedEv;
+            this.BindingContext = vm;
+        }
+
+        private void Vm_SelectionChangedEv(object sender, string e)
+        {
+            DisplayAlert("selected", e, "ok");
         }
     }
 }

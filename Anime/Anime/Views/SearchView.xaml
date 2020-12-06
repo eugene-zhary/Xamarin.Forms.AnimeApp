@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Anime.Views.SearchView"
              xmlns:controls="clr-namespace:Anime.Controls"
+             xmlns:behaviors="clr-namespace:Anime.Behaviors"
+             x:Class="Anime.Views.SearchView"
              BackgroundColor="#272726">
     <ContentPage.Resources>
         <DataTemplate x:Key="categoriesTemplate">
@@ -28,8 +29,11 @@
                     <Label Text="ВИДЫ" StyleClass="headerLabel"/>
 
                     <ScrollView VerticalScrollBarVisibility="Never">
-                        <controls:FlexableView StyleClass="itemsPanel" 
-                                               ItemsSource="{Binding AnimeTypes}" ItemsTemplate="{StaticResource categoriesTemplate}"/>
+                        <controls:FlexableView StyleClass="itemsPanel" ItemsSource="{Binding AnimeTypes}" ItemTemplate="{StaticResource categoriesTemplate}">
+                            <controls:FlexableView.Behaviors>
+                                <behaviors:FlexLayoutItemTappedBehavior Command="{Binding TappedOnItem}" Paramater="{Binding}"/>
+                            </controls:FlexableView.Behaviors>
+                        </controls:FlexableView>
                     </ScrollView>
                 </StackLayout>
             </controls:XFrame>
@@ -39,8 +43,11 @@
                     <Label Text="ЖАНРЫ" StyleClass="headerLabel"/>
 
                     <ScrollView VerticalScrollBarVisibility="Never">
-                        <controls:FlexableView StyleClass="itemsPanel" 
-                                               ItemsSource="{Binding AnimeGenres}" ItemsTemplate="{StaticResource categoriesTemplate}"/>
+                        <controls:FlexableView StyleClass="itemsPanel" ItemsSource="{Binding AnimeGenres}" ItemTemplate="{StaticResource categoriesTemplate}">
+                            <controls:FlexableView.Behaviors>
+                                <behaviors:FlexLayoutItemTappedBehavior Command="{Binding TappedOnItem}" Paramater="{Binding .}"/>
+                            </controls:FlexableView.Behaviors>
+                        </controls:FlexableView>
                     </ScrollView>
                 </StackLayout>
             </controls:XFrame>

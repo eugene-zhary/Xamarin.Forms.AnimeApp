@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Anime.Controls"
+             xmlns:behaviors="clr-namespace:Anime.Behaviors"
              x:Class="Anime.Views.HomeView"
              BackgroundColor="#313130 ">
     <ContentPage.Content>
@@ -22,8 +23,11 @@
                     <!-- main panel -->
                     <ScrollView VerticalScrollBarVisibility="Never">
                         <controls:FlexableView ItemsSource="{Binding TestItems}" StyleClass="itemsPanel">
-                            <controls:FlexableView.ItemsTemplate>
-
+                            <controls:FlexableView.Behaviors>
+                                <behaviors:FlexLayoutItemTappedBehavior Command="{Binding TappedOnItem}" Paramater="{Binding}"/>
+                            </controls:FlexableView.Behaviors>
+                            
+                            <controls:FlexableView.ItemTemplate>
                                 <DataTemplate>
                                     <controls:XFrame StyleClass="itemFrame" BorderWidth="8" FlexLayout.Basis="50%">
                                         <Grid>
@@ -44,8 +48,7 @@
                                         </Grid>
                                     </controls:XFrame>
                                 </DataTemplate>
-
-                            </controls:FlexableView.ItemsTemplate>
+                            </controls:FlexableView.ItemTemplate>
                         </controls:FlexableView>
                     </ScrollView>
                 </StackLayout>

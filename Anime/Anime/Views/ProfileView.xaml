@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Anime.Views.ProfileView"
              xmlns:controls="clr-namespace:Anime.Controls"
+             xmlns:behaviors="clr-namespace:Anime.Behaviors"
              BackgroundColor="#1D1D1B">
     <ContentPage.Content>
         <Grid>
@@ -72,7 +73,10 @@
                     <!--MAIN PANEL-->
                     <ScrollView VerticalScrollBarVisibility="Never">
                         <controls:FlexableView ItemsSource="{Binding History}" AlignItems="Stretch" Wrap="NoWrap" Direction="Column">
-                            <controls:FlexableView.ItemsTemplate>
+                            <controls:FlexableView.Behaviors>
+                                <behaviors:FlexLayoutItemTappedBehavior Command="{Binding TappedOnItem}" Paramater="{Binding}"/>
+                            </controls:FlexableView.Behaviors>
+                            <controls:FlexableView.ItemTemplate>
                                 <DataTemplate>
                                     <controls:XFrame StyleClass="itemFrame" Margin="10,5,10,5" BorderWidth="8" Padding="5" >
                                         <Grid>
@@ -88,7 +92,7 @@
                                         </Grid>
                                     </controls:XFrame>
                                 </DataTemplate>
-                            </controls:FlexableView.ItemsTemplate>
+                            </controls:FlexableView.ItemTemplate>
                         </controls:FlexableView>
                     </ScrollView>
                 </StackLayout>

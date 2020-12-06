@@ -3,14 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Anime.ViewModels
 {
-    public class HomePageViewModel : ViewModel
+    public class HomeViewModel : ViewModel
     {
+        public event EventHandler<string> SelectionChangedEv;
         public ObservableCollection<AnimeModel> TestItems { get; set; }
 
-        public HomePageViewModel()
+        public HomeViewModel()
         {
             TestItems = new ObservableCollection<AnimeModel>() {
                 new AnimeModel(){ImgPath="naruto.jpg" ,Title = "Naruto", Rating="8/10"},
@@ -23,5 +26,9 @@ namespace Anime.ViewModels
             };
         }
 
+        public ICommand TappedOnItem => new Command((item) => {
+            var selected = item as AnimeModel;
+            SelectionChangedEv?.Invoke(this, selected.Title);
+        });
     }
 }

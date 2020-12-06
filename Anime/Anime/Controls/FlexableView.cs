@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Essentials;
@@ -8,47 +9,43 @@ namespace Anime.Controls
 {
     public class FlexableView : FlexLayout
     {
-        private DataTemplate itemsTemplate;
-        public DataTemplate ItemsTemplate {
-            get => itemsTemplate;
-            set {
-                itemsTemplate = value;
-                MainThread.BeginInvokeOnMainThread(() => Generate());
-            }
-        }
+        public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(
+            nameof(ItemsSource),
+            typeof(IEnumerable),
+            typeof(FlexableView),
+            propertyChanged: OnItemsSourceChanged);
 
-        public static BindableProperty ItemsSourceProperty = 
-            BindableProperty.Create(nameof(ItemsSource), typeof(IEnumerable<object>), typeof(FlexableView),
-                propertyChanged: (bindable, oldValue, newValue) => {
-                    var repeater = (FlexableView)bindable;
-                    if (repeater.itemsTemplate == null)
-                        return;
-                    MainThread.BeginInvokeOnMainThread(() => repeater.Generate());
-                });
+        public static readonly BindableProperty ItemTemplateProperty = BindableProperty.Create(
+            nameof(ItemTemplate),
+            typeof(DataTemplate),
+            typeof(FlexableView));
 
-        public IEnumerable<object> ItemsSource {
-            get => GetValue(ItemsSourceProperty) as IEnumerable<object>;
+        public IEnumerable ItemsSource {
+            get => GetValue(ItemsSourceProperty) as IEnumerable;
             set => SetValue(ItemsSourceProperty, value);
         }
 
+        public DataTemplate ItemTemplate {
+            get => GetValue(ItemTemplateProperty) as DataTemplate;
+            set => SetValue(ItemTemplateProperty, value);
+        }
 
-        private void Generate()
+        private static void OnItemsSourceChanged(BindableObject bindable, object oldVal, object newVal)
         {
-            this.Children.Clear();
+            var layout = (FlexableView)bindable;
+            layout.Children.Clear();
 
-            if (ItemsSource == null) {
-                return;
-            }
-
-            foreach (var item in ItemsSource) {
-                if (itemsTemplate.CreateContent() is View view) {
-                    view.BindingContext = item;
-                    Children.Add(view);
-                }
-                else {
-                    return;
+            if (newVal is IEnumerable newValue) {
+                foreach (var item in newValue) {
+                    layout.Children.Add(layout.CreateChildrenView(item));
                 }
             }
+        }
+
+        private View CreateChildrenView(object item)
+        {
+            ItemTemplate.SetValue(BindableObject.BindingContextProperty, item);
+            return ItemTemplate.CreateContent() as View;
         }
     }
 }

@@ -16,7 +16,14 @@ namespace Anime.Views
         public ProfileView()
         {
             InitializeComponent();
-            this.BindingContext = new ProfileViewModel();
+            ProfileViewModel vm = new ProfileViewModel();
+            vm.SelectionChangedEv += Vm_SelectionChangedEv;
+            this.BindingContext = vm;
+        }
+
+        private void Vm_SelectionChangedEv(object sender, string e)
+        {
+            DisplayAlert("selected", e, "ok");
         }
     }
 }
