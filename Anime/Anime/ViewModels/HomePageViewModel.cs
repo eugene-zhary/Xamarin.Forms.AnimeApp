@@ -13,13 +13,13 @@ namespace Anime.ViewModels
         public HomePageViewModel()
         {
             TestItems = new ObservableCollection<AnimeModel>() {
-                new AnimeModel(){ImgPath="naruto.jpg" ,Title = "naruto", Rating="8/10"},
-                new AnimeModel(){ImgPath="berserk.jpg" ,Title = "berserk", Rating="8/10"},
-                new AnimeModel(){ImgPath="bleach.jpg" ,Title = "bleach", Rating="8/10"},
-                new AnimeModel(){ImgPath="eva.jpg" ,Title = "eva", Rating="5/10"},
-                new AnimeModel(){ImgPath="dragonball.jpg" ,Title = "dragonball", Rating="9/10"},
-                new AnimeModel(){ImgPath="pokemon.jpg" ,Title = "pokemon", Rating="9/10"},
-                new AnimeModel(){ImgPath="rezero.jpg" ,Title = "rezero", Rating="6/10"},
+                new AnimeModel(){ImgPath="naruto.jpg" ,Title = "Naruto", Rating="8/10"},
+                new AnimeModel(){ImgPath="berserk.jpg" ,Title = "Berserk", Rating="8/10"},
+                new AnimeModel(){ImgPath="bleach.jpg" ,Title = "Bleach", Rating="8/10"},
+                new AnimeModel(){ImgPath="eva.jpg" ,Title = "Eva", Rating="5/10"},
+                new AnimeModel(){ImgPath="dragonball.jpg" ,Title = "Dragonball", Rating="9/10"},
+                new AnimeModel(){ImgPath="pokemon.jpg" ,Title = "Pokemon", Rating="9/10"},
+                new AnimeModel(){ImgPath="rezero.jpg" ,Title = "Re:zero", Rating="6/10"},
             };
         }
 

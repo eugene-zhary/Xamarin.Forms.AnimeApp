@@ -6,9 +6,8 @@
              BackgroundColor="#272726">
     <ContentPage.Resources>
         <DataTemplate x:Key="categoriesTemplate">
-            <controls:XFrame StyleClass="itemFrame" BorderWidth="8">
-                <Label Text="{Binding}" StyleClass="itemLabel"
-                                        WidthRequest="100" HeightRequest="55"
+            <controls:XFrame StyleClass="itemFrame" BorderWidth="8" FlexLayout.Basis="33.3%">
+                <Label Text="{Binding}" StyleClass="itemLabel" HeightRequest="60"
                                         VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
             </controls:XFrame>
         </DataTemplate>

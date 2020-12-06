@@ -15,7 +15,7 @@
 
             <controls:XFrame Grid.Row="1" StyleClass="topFrame"
                              MultiCornerRadius="15,15,0,0">
-                <StackLayout> 
+                <StackLayout>
                     <!-- panel description -->
                     <Label Text="ТОП 100" StyleClass="headerLabel"/>
 
@@ -23,22 +23,28 @@
                     <ScrollView VerticalScrollBarVisibility="Never">
                         <controls:FlexableView ItemsSource="{Binding TestItems}" StyleClass="itemsPanel">
                             <controls:FlexableView.ItemsTemplate>
-                                
+
                                 <DataTemplate>
-                                    <controls:XFrame StyleClass="itemFrame" BorderWidth="8">
-                                        <StackLayout Spacing="0">
+                                    <controls:XFrame StyleClass="itemFrame" BorderWidth="8" FlexLayout.Basis="50%">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+
                                             <controls:XFrame StyleClass="itemFrame" BorderWidth="8" Margin="0">
                                                 <Image Source="{Binding ImgPath}" Aspect="AspectFill"
                                                    StyleClass="itemImg"/>
                                             </controls:XFrame>
-                                            <Label Text="{Binding Title}" 
+                                            <Label Grid.Row="1" Text="{Binding Title}" 
                                                    StyleClass="itemLabel"/>
-                                            <Label Text="{Binding Rating, StringFormat='Rate: {0}'}" 
+                                            <Label Grid.Row="2" Text="{Binding Rating, StringFormat='Rate: {0}'}" 
                                                    StyleClass="itemLabel"/>
-                                        </StackLayout>
+                                        </Grid>
                                     </controls:XFrame>
                                 </DataTemplate>
-                                
+
                             </controls:FlexableView.ItemsTemplate>
                         </controls:FlexableView>
                     </ScrollView>

@@ -7,47 +7,92 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
+            <!--USER INFO-->
+            <Grid Grid.Row="0" BindingContext="{Binding User}" Margin="30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
+                <!--IMAGE-->
+                <controls:XFrame StyleClass="itemFrame" Margin="0" Padding="5" BorderWidth="8">
+                    <Image Source="{Binding ImgPath}" Aspect="AspectFill" WidthRequest="180" HeightRequest="180"/>
+                </controls:XFrame>
+
+                <!--NAME, BDAY, SEX-->
+                <Grid Grid.Column="1" Margin="0,5,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Text="{Binding Name}" FontSize="18" StyleClass="itemLabel"
+                       Grid.Row="0"/>
+                    <Label Text="Username" StyleClass="descriptionLable"
+                       Grid.Row="1"/>
+
+                    <Label Text="{Binding BDay, StringFormat='{0:d}'}" StyleClass="itemLabel"
+                       Grid.Row="2"/>
+                    <Label Text="BDay" StyleClass="descriptionLable"
+                       Grid.Row="3"/>
+
+                    <Label Text="{Binding Sex}" StyleClass="itemLabel"
+                       Grid.Row="4"/>
+                    <Label Text="Sex" StyleClass="descriptionLable"
+                       Grid.Row="5"/>
+                </Grid>
+
+                <!--BIOGRAPHY-->
+                <Label Text="{Binding AboutMe}" StyleClass="itemLabel" Margin="5,5,0,0" 
+                       Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
+                <Label Text="Bio" StyleClass="descriptionLable"
+                       Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
+            </Grid>
+
+            <!--HISTORY-->
             <controls:XFrame Grid.Row="1" MultiCornerRadius="15,15,0,0" StyleClass="topFrame">
                 <StackLayout>
+
+                    <!--PANEL DESCRIOPTION-->
                     <Label Text="ИСТОРИЯ" StyleClass="headerLabel"/>
 
+                    <!--MAIN PANEL-->
                     <ScrollView VerticalScrollBarVisibility="Never">
                         <controls:FlexableView ItemsSource="{Binding History}" AlignItems="Stretch" Wrap="NoWrap" Direction="Column">
                             <controls:FlexableView.ItemsTemplate>
                                 <DataTemplate>
-
-                                    <controls:XFrame StyleClass="itemFrame" Margin="10,5,10,5" BorderWidth="8" Padding="8" >
+                                    <controls:XFrame StyleClass="itemFrame" Margin="10,5,10,5" BorderWidth="8" Padding="5" >
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="auto"/>
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
 
-
                                             <Image Source="{Binding ImgPath}" 
-                                           WidthRequest="60" HeightRequest="60"
-                                           Aspect="AspectFill"/>
-
+                                                   WidthRequest="60" HeightRequest="60"
+                                                   Aspect="AspectFill"/>
                                             <Label Grid.Column="1" FontSize="18" Text="{Binding Title}" StyleClass="itemLabel" VerticalTextAlignment="Center"/>
                                         </Grid>
                                     </controls:XFrame>
-
-
                                 </DataTemplate>
                             </controls:FlexableView.ItemsTemplate>
                         </controls:FlexableView>
                     </ScrollView>
-
-
                 </StackLayout>
             </controls:XFrame>
-
-
         </Grid>
     </ContentPage.Content>
 </ContentPage>
