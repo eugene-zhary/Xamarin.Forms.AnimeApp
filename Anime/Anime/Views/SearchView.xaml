@@ -4,6 +4,16 @@
              x:Class="Anime.Views.SearchView"
              xmlns:controls="clr-namespace:Anime.Controls"
              BackgroundColor="#272726">
+    <ContentPage.Resources>
+        <DataTemplate x:Key="categoriesTemplate">
+            <controls:XFrame StyleClass="itemFrame" BorderWidth="8">
+                <Label Text="{Binding}" StyleClass="itemLabel"
+                                        WidthRequest="100" HeightRequest="55"
+                                        VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            </controls:XFrame>
+        </DataTemplate>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -12,28 +22,16 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-
             <Entry StyleClass="searchEntry" Placeholder="Поиск"/>
-
 
             <controls:XFrame Grid.Row="1" MultiCornerRadius="15,15,0,0" StyleClass="topFrame" BackgroundColor="#313130" Padding="20">
                 <StackLayout>
                     <Label Text="ВИДЫ" StyleClass="headerLabel"/>
-                    
-                    <ScrollView>
-                        <controls:FlexableView ItemsSource="{Binding AnimeTypes}" StyleClass="itemsPanel">
-                            <controls:FlexableView.ItemsTemplate>
-                                <DataTemplate>
-                                    <controls:XFrame StyleClass="itemFrame" BorderWidth="8">
-                                        <Label Text="{Binding}" StyleClass="itemLabel"
-                                               WidthRequest="100" HeightRequest="55"
-                                               VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                                    </controls:XFrame>
-                                </DataTemplate>
-                            </controls:FlexableView.ItemsTemplate>
-                        </controls:FlexableView>
+
+                    <ScrollView VerticalScrollBarVisibility="Never">
+                        <controls:FlexableView StyleClass="itemsPanel" 
+                                               ItemsSource="{Binding AnimeTypes}" ItemsTemplate="{StaticResource categoriesTemplate}"/>
                     </ScrollView>
-                    
                 </StackLayout>
             </controls:XFrame>
 
@@ -41,29 +39,14 @@
                 <StackLayout>
                     <Label Text="ЖАНРЫ" StyleClass="headerLabel"/>
 
-                    <ScrollView>
-                        <controls:FlexableView ItemsSource="{Binding AnimeGenres}" StyleClass="itemsPanel">
-                            <controls:FlexableView.ItemsTemplate>
-                                <DataTemplate>
-                                    <controls:XFrame StyleClass="itemFrame" BorderWidth="8">
-                                        <Label Text="{Binding}" StyleClass="itemLabel"
-                                           WidthRequest="100" HeightRequest="55"
-                                           VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                                    </controls:XFrame>
-                                </DataTemplate>
-                            </controls:FlexableView.ItemsTemplate>
-                        </controls:FlexableView>
+                    <ScrollView VerticalScrollBarVisibility="Never">
+                        <controls:FlexableView StyleClass="itemsPanel" 
+                                               ItemsSource="{Binding AnimeGenres}" ItemsTemplate="{StaticResource categoriesTemplate}"/>
                     </ScrollView>
-                    
                 </StackLayout>
             </controls:XFrame>
-            
-            
 
         </Grid>
-
-
-
 
     </ContentPage.Content>
 </ContentPage>

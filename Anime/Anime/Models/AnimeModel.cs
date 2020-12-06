@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Anime.Models
 {
-    public class WrapedItemModel
+    public class AnimeModel
     {
         public string ImgPath { get; set; }
         public string Title { get; set; }

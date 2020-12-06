@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Anime.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Anime.Views
         public ProfileView()
         {
             InitializeComponent();
+            this.BindingContext = new ProfileViewModel();
         }
     }
 }

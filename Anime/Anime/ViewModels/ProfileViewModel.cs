@@ -6,13 +6,14 @@ using System.Text;
 
 namespace Anime.ViewModels
 {
-    public class HomePageViewModel : ViewModel
+    public class ProfileViewModel
     {
-        public ObservableCollection<AnimeModel> TestItems { get; set; }
+        public ObservableCollection<AnimeModel> History { get; set; }
 
-        public HomePageViewModel()
+
+        public ProfileViewModel()
         {
-            TestItems = new ObservableCollection<AnimeModel>() {
+            History = new ObservableCollection<AnimeModel>() {
                 new AnimeModel(){ImgPath="naruto.jpg" ,Title = "naruto", Rating="8/10"},
                 new AnimeModel(){ImgPath="berserk.jpg" ,Title = "berserk", Rating="8/10"},
                 new AnimeModel(){ImgPath="bleach.jpg" ,Title = "bleach", Rating="8/10"},

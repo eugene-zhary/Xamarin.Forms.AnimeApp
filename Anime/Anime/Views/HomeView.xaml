@@ -20,7 +20,7 @@
                     <Label Text="ТОП 100" StyleClass="headerLabel"/>
 
                     <!-- main panel -->
-                    <ScrollView>
+                    <ScrollView VerticalScrollBarVisibility="Never">
                         <controls:FlexableView ItemsSource="{Binding TestItems}" StyleClass="itemsPanel">
                             <controls:FlexableView.ItemsTemplate>
                                 

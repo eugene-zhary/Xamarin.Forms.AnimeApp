@@ -2,8 +2,52 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Anime.Views.ProfileView"
+             xmlns:controls="clr-namespace:Anime.Controls"
              BackgroundColor="#1D1D1B">
     <ContentPage.Content>
-        <Label TextColor="#941E82" Text="coming soon page 3..." FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <controls:XFrame Grid.Row="1" MultiCornerRadius="15,15,0,0" StyleClass="topFrame">
+                <StackLayout>
+                    <Label Text="ИСТОРИЯ" StyleClass="headerLabel"/>
+
+                    <ScrollView VerticalScrollBarVisibility="Never">
+                        <controls:FlexableView ItemsSource="{Binding History}" AlignItems="Stretch" Wrap="NoWrap" Direction="Column">
+                            <controls:FlexableView.ItemsTemplate>
+                                <DataTemplate>
+
+                                    <controls:XFrame StyleClass="itemFrame" Margin="10,5,10,5" BorderWidth="8" Padding="8" >
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+
+                                            <Image Source="{Binding ImgPath}" 
+                                           WidthRequest="60" HeightRequest="60"
+                                           Aspect="AspectFill"/>
+
+                                            <Label Grid.Column="1" FontSize="18" Text="{Binding Title}" StyleClass="itemLabel" VerticalTextAlignment="Center"/>
+                                        </Grid>
+                                    </controls:XFrame>
+
+
+                                </DataTemplate>
+                            </controls:FlexableView.ItemsTemplate>
+                        </controls:FlexableView>
+                    </ScrollView>
+
+
+                </StackLayout>
+            </controls:XFrame>
+
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
