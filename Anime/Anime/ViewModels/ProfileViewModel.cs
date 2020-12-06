@@ -37,8 +37,8 @@ namespace Anime.ViewModels
         }
 
         public ICommand TappedOnItem => new Command((item) => {
-            var selected = item as AnimeModel;
-            SelectionChangedEv?.Invoke(this, selected.Title);
+            if(item is AnimeModel anime)
+                SelectionChangedEv?.Invoke(this, anime.Title);
         });
 
     }
