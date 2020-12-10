@@ -25,7 +25,8 @@
                 </Grid.ColumnDefinitions>
 
                 <!--IMAGE-->
-                <controls:XFrame StyleClass="itemFrame" Margin="0" Padding="5" BorderWidth="8">
+                <controls:XFrame Margin="0" Padding="5" BorderWidth="8"
+                                 BorderColor="#941E82" BackgroundColor="#1D1D1B">
                     <Image Source="{Binding ImgPath}" Aspect="AspectFill" WidthRequest="180" HeightRequest="180"/>
                 </controls:XFrame>
 
@@ -40,35 +41,37 @@
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
 
-                    <Label Text="{Binding Name}" FontSize="18" StyleClass="itemLabel"
-                       Grid.Row="0"/>
-                    <Label Text="Username" StyleClass="descriptionLable"
-                       Grid.Row="1"/>
+                    <Label Text="{Binding Name}" FontSize="18" Grid.Row="0"
+                           Margin="5,0,0,0" TextColor="#B8A4CF" />
+                    <Label Text="Username" Grid.Row="1"
+                           FontSize="9" TextColor="#941E82" Margin="10,-10,0,0"/>
 
-                    <Label Text="{Binding BDay, StringFormat='{0:d}'}" StyleClass="itemLabel"
-                       Grid.Row="2"/>
-                    <Label Text="BDay" StyleClass="descriptionLable"
-                       Grid.Row="3"/>
+                    <Label Text="{Binding BDay, StringFormat='{0:d}'}" Grid.Row="2"
+                           TextColor="#B8A4CF" Margin="5,0,0,0" FontSize="13"/>
+                    <Label Text="BDay" Grid.Row="3"
+                           FontSize="9" TextColor="#941E82" Margin="10,-10,0,0"/>
 
-                    <Label Text="{Binding Sex}" StyleClass="itemLabel"
-                       Grid.Row="4"/>
-                    <Label Text="Sex" StyleClass="descriptionLable"
-                       Grid.Row="5"/>
+                    <Label Text="{Binding Sex}" Grid.Row="4"
+                           TextColor="#B8A4CF" Margin="5,0,0,0" FontSize="13"/>
+                    <Label Text="Sex" Grid.Row="5"
+                           FontSize="9" TextColor="#941E82" Margin="10,-10,0,0"/>
                 </Grid>
 
                 <!--BIOGRAPHY-->
-                <Label Text="{Binding AboutMe}" StyleClass="itemLabel" Margin="5,5,0,0" 
-                       Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
-                <Label Text="Bio" StyleClass="descriptionLable"
-                       Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
+                <Label Text="{Binding AboutMe}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+                       Margin="5,5,0,0" TextColor="#B8A4CF" FontSize="13"/>
+                <Label Text="Bio" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"
+                        FontSize="9" TextColor="#941E82" Margin="10,-10,0,0"/>
             </Grid>
 
             <!--HISTORY-->
-            <controls:XFrame Grid.Row="1" MultiCornerRadius="15,15,0,0" StyleClass="topFrame">
+            <controls:XFrame Grid.Row="1" MultiCornerRadius="15,15,0,0"
+                             Padding="20,20,20,0" BackgroundColor="#272726">
                 <StackLayout>
 
                     <!--PANEL DESCRIOPTION-->
-                    <Label Text="ИСТОРИЯ" StyleClass="headerLabel"/>
+                    <Label Text="ИСТОРИЯ"
+                           TextColor="#941E82"  FontSize="16" FontAttributes="Bold" FontFamily="Consolas"/>
 
                     <!--MAIN PANEL-->
                     <ScrollView VerticalScrollBarVisibility="Never">
@@ -78,7 +81,8 @@
                             </controls:FlexableView.Behaviors>
                             <controls:FlexableView.ItemTemplate>
                                 <DataTemplate>
-                                    <controls:XFrame StyleClass="itemFrame" Margin="10,5,10,5" BorderWidth="8" Padding="5" >
+                                    <controls:XFrame Margin="10,5,10,5" BorderWidth="8" Padding="5"
+                                                      BorderColor="#941E82" BackgroundColor="#1D1D1B">
                                         <Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="auto"/>
@@ -88,7 +92,8 @@
                                             <Image Source="{Binding ImgPath}" 
                                                    WidthRequest="60" HeightRequest="60"
                                                    Aspect="AspectFill"/>
-                                            <Label Grid.Column="1" FontSize="18" Text="{Binding Title}" StyleClass="itemLabel" VerticalTextAlignment="Center"/>
+                                            <Label Grid.Column="1" FontSize="18" Text="{Binding Title}" VerticalTextAlignment="Center"
+                                                   TextColor="#B8A4CF" Margin="5,0,0,0"/>
                                         </Grid>
                                     </controls:XFrame>
                                 </DataTemplate>

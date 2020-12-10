@@ -4,9 +4,11 @@
        xmlns:views="clr-namespace:Anime.Views"
        x:Class="Anime.Views.ShellView"
        Shell.NavBarIsVisible="False"
-       StyleClass="shellStyle">
+       Shell.TabBarBackgroundColor="#313130"
+       Shell.TabBarUnselectedColor="#941E82"
+       Shell.TabBarTitleColor="#B8A4CF">
     <TabBar >
-        <Tab Icon="ic_home.png">
+        <!--<Tab Icon="ic_home.png">
             <ShellContent ContentTemplate="{DataTemplate views:HomeView}"/>
         </Tab>
         <Tab Icon="ic_search.png">
@@ -14,6 +16,21 @@
         </Tab>
         <Tab Icon="ic_person.png">
             <ShellContent ContentTemplate="{DataTemplate views:ProfileView}"/>
+        </Tab>-->
+        <Tab Icon="ic_home.png">
+            <ShellContent>
+                <views:HomeView/>
+            </ShellContent>
+        </Tab>
+        <Tab Icon="ic_search.png">
+            <ShellContent>
+                <views:SearchView/>
+            </ShellContent>
+        </Tab>
+        <Tab Icon="ic_person.png">
+            <ShellContent>
+                <views:ProfileView/>
+            </ShellContent>
         </Tab>
     </TabBar>
 </Shell>

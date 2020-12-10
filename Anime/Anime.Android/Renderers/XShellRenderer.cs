@@ -56,7 +56,7 @@ namespace Anime.Droid.Renderers
             bottomView.ItemIconSize = Convert.ToInt32(parameters.Height * 0.5d);
 
             //убирает анимации для элементов нижней панели
-            bottomView.ItemBackground = null;
+            //bottomView.ItemBackground = null;
 
             return outerlayout;
         }

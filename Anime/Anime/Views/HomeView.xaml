@@ -12,39 +12,47 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Button Text="Рекомендации" StyleClass="recomendationButton"/>
+            <!--left top right bottom-->
+            <Button Text="Рекомендации" 
+                    FontSize="18" HeightRequest="65" TextColor="#B8A4CF" BackgroundColor="#1D1D1B"
+                    BorderColor="#941E82" BorderWidth="4" CornerRadius="15" Margin="30,30,30,20"/>
 
-            <controls:XFrame Grid.Row="1" StyleClass="topFrame"
-                             MultiCornerRadius="15,15,0,0">
+            <controls:XFrame Grid.Row="1" MultiCornerRadius="15,15,0,0"
+                             BackgroundColor="#272726" Padding="20,20,20,0">
                 <StackLayout>
                     <!-- panel description -->
-                    <Label Text="ТОП 100" StyleClass="headerLabel"/>
+                    <Label Text="ТОП 100"
+                           TextColor="#941E82" FontSize="16" FontAttributes="Bold" FontFamily="Consolas"/>
 
                     <!-- main panel -->
-                    <ScrollView VerticalScrollBarVisibility="Never">
-                        <controls:FlexableView ItemsSource="{Binding TestItems}" StyleClass="itemsPanel">
+                    <ScrollView VerticalScrollBarVisibility="Never" >
+                        <controls:FlexableView ItemsSource="{Binding TestItems}"
+                                               AlignContent="Start" Wrap="Wrap" AlignItems="Center">
                             <controls:FlexableView.Behaviors>
                                 <behaviors:FlexLayoutItemTappedBehavior Command="{Binding TappedOnItem}" Paramater="{Binding}"/>
                             </controls:FlexableView.Behaviors>
                             
                             <controls:FlexableView.ItemTemplate>
                                 <DataTemplate>
-                                    <controls:XFrame StyleClass="itemFrame" BorderWidth="8" FlexLayout.Basis="50%">
+                                    <controls:XFrame BorderWidth="8" FlexLayout.Basis="50%"
+                                                     BorderColor="#941E82" Padding="0" Margin="10" BackgroundColor="#1D1D1B">
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="auto"/>
                                                 <RowDefinition Height="*"/>
                                                 <RowDefinition Height="*"/>
+                                                <RowDefinition Height="2"/>
                                             </Grid.RowDefinitions>
 
-                                            <controls:XFrame StyleClass="itemFrame" BorderWidth="8" Margin="0">
+                                            <controls:XFrame BorderWidth="8" Margin="0" Padding="0" BorderColor="#941E82">
                                                 <Image Source="{Binding ImgPath}" Aspect="AspectFill"
-                                                   StyleClass="itemImg"/>
+                                                   WidthRequest="165" HeightRequest="180"/>
                                             </controls:XFrame>
+                                            
                                             <Label Grid.Row="1" Text="{Binding Title}" 
-                                                   StyleClass="itemLabel"/>
+                                                   TextColor="#B8A4CF" Margin="6,0,0,0" FontSize="13" FontAttributes="Bold"/>
                                             <Label Grid.Row="2" Text="{Binding Rating, StringFormat='Rate: {0}'}" 
-                                                   StyleClass="itemLabel"/>
+                                                   TextColor="#B8A4CF" Margin="6,0,0,0" FontSize="13" FontAttributes="Bold"/>
                                         </Grid>
                                     </controls:XFrame>
                                 </DataTemplate>

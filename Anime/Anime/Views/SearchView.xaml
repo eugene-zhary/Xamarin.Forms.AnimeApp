@@ -7,9 +7,10 @@
              BackgroundColor="#272726">
     <ContentPage.Resources>
         <DataTemplate x:Key="categoriesTemplate">
-            <controls:XFrame StyleClass="itemFrame" BorderWidth="8" FlexLayout.Basis="33.3%">
-                <Label Text="{Binding}" StyleClass="itemLabel" HeightRequest="60"
-                                        VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <controls:XFrame BorderWidth="8" FlexLayout.Basis="33.3%"
+                             BorderColor="#941E82" Padding="5" BackgroundColor="#1D1D1B" Margin="5">
+                <Label Text="{Binding}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HeightRequest="60"
+                       TextColor="#B8A4CF" FontSize="13" LineBreakMode="TailTruncation"/>
             </controls:XFrame>
         </DataTemplate>
     </ContentPage.Resources>
@@ -22,14 +23,17 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Entry StyleClass="searchEntry" Placeholder="Поиск"/>
+            <Entry Placeholder="Поиск"
+                   Margin="30,30,30,20" HeightRequest="65" FontSize="18"/>
 
-            <controls:XFrame Grid.Row="1" MultiCornerRadius="15,15,0,0" StyleClass="topFrame" BackgroundColor="#313130" Padding="20">
+            <controls:XFrame Grid.Row="1" MultiCornerRadius="15,15,0,0" BackgroundColor="#313130" Padding="20">
                 <StackLayout>
-                    <Label Text="ВИДЫ" StyleClass="headerLabel"/>
+                    <Label Text="ВИДЫ"
+                           TextColor="#941E82" FontSize="16" FontAttributes="Bold" FontFamily="Consolas"/>
 
                     <ScrollView VerticalScrollBarVisibility="Never">
-                        <controls:FlexableView StyleClass="itemsPanel" ItemsSource="{Binding AnimeTypes}" ItemTemplate="{StaticResource categoriesTemplate}">
+                        <controls:FlexableView ItemsSource="{Binding AnimeTypes}" ItemTemplate="{StaticResource categoriesTemplate}"
+                                               AlignContent="Start" Wrap="Wrap" AlignItems="Center">
                             <controls:FlexableView.Behaviors>
                                 <behaviors:FlexLayoutItemTappedBehavior Command="{Binding TappedOnItem}" Paramater="{Binding}"/>
                             </controls:FlexableView.Behaviors>
@@ -38,12 +42,15 @@
                 </StackLayout>
             </controls:XFrame>
 
-            <controls:XFrame Grid.Row="2" MultiCornerRadius="15,15,0,0" Margin="0,-15,0,0" StyleClass="topFrame">
+            <controls:XFrame Grid.Row="2" MultiCornerRadius="15,15,0,0" Margin="0,-15,0,0"
+                             BackgroundColor="#272726" Padding="20,20,20,0">
                 <StackLayout>
-                    <Label Text="ЖАНРЫ" StyleClass="headerLabel"/>
+                    <Label Text="ЖАНРЫ"
+                           TextColor="#941E82" FontSize="16" FontAttributes="Bold" FontFamily="Consolas"/>
 
                     <ScrollView VerticalScrollBarVisibility="Never">
-                        <controls:FlexableView StyleClass="itemsPanel" ItemsSource="{Binding AnimeGenres}" ItemTemplate="{StaticResource categoriesTemplate}">
+                        <controls:FlexableView ItemsSource="{Binding AnimeGenres}" ItemTemplate="{StaticResource categoriesTemplate}"
+                                               AlignContent="Start" Wrap="Wrap" AlignItems="Center">
                             <controls:FlexableView.Behaviors>
                                 <behaviors:FlexLayoutItemTappedBehavior Command="{Binding TappedOnItem}" Paramater="{Binding .}"/>
                             </controls:FlexableView.Behaviors>
