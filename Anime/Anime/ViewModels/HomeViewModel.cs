@@ -1,4 +1,5 @@
 ﻿using Anime.Models;
+using Anime.Navigable;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,12 +9,12 @@ using Xamarin.Forms;
 
 namespace Anime.ViewModels
 {
-    public class HomeViewModel : ViewModel
+    public class HomeViewModel : ANavigableViewModel
     {
         public event EventHandler<string> SelectionChangedEv;
         public ObservableCollection<AnimeModel> TestItems { get; set; }
 
-        public HomeViewModel()
+        public HomeViewModel(INavigationService navigationService) :base(navigationService)
         {
             TestItems = new ObservableCollection<AnimeModel>() {
                 new AnimeModel(){ImgPath="naruto.jpg" ,Title = "Naruto", Rating="8/10"},

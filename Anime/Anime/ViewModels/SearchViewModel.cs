@@ -1,4 +1,5 @@
 ﻿using Anime.Models;
+using Anime.Navigable;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,14 +9,14 @@ using Xamarin.Forms;
 
 namespace Anime.ViewModels
 {
-    public class SearchViewModel : ViewModel
+    public class SearchViewModel : ANavigableViewModel
     {
         public event EventHandler<string> SelectionChangedEv;
 
         public ObservableCollection<string> AnimeTypes { get; set; }
         public ObservableCollection<string> AnimeGenres { get; set; }
 
-        public SearchViewModel()
+        public SearchViewModel(INavigationService navigationService) : base(navigationService) 
         {
             this.AnimeTypes = new ObservableCollection<string>() {
                 "Кодомо",

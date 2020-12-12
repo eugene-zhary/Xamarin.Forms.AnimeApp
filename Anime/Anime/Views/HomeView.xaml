@@ -1,11 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:vm="clr-namespace:Anime.ViewModels"
              xmlns:controls="clr-namespace:Anime.Controls"
              xmlns:behaviors="clr-namespace:Anime.Behaviors"
              x:Class="Anime.Views.HomeView"
-             BackgroundColor="#313130 ">
-    <ContentPage.Content>
+             BackgroundColor="#313130"
+             >
+    <d:ContentView.BindingContext>
+        <vm:HomeViewModel/>
+    </d:ContentView.BindingContext>
+    <ContentView.Content>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -20,11 +28,11 @@
             <controls:XFrame Grid.Row="1" MultiCornerRadius="15,15,0,0"
                              BackgroundColor="#272726" Padding="20,20,20,0">
                 <StackLayout>
-                    <!-- panel description -->
+                     <!--panel description--> 
                     <Label Text="ТОП 100"
                            TextColor="#941E82" FontSize="16" FontAttributes="Bold" FontFamily="Consolas"/>
 
-                    <!-- main panel -->
+                     <!--main panel--> 
                     <ScrollView VerticalScrollBarVisibility="Never" >
                         <controls:FlexableView ItemsSource="{Binding TestItems}"
                                                AlignContent="Start" Wrap="Wrap" AlignItems="Center">
@@ -63,5 +71,5 @@
             </controls:XFrame>
 
         </Grid>
-    </ContentPage.Content>
-</ContentPage>
+    </ContentView.Content>
+</ContentView>

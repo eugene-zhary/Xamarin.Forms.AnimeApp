@@ -1,11 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Anime.Controls"
              xmlns:behaviors="clr-namespace:Anime.Behaviors"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:vm="clr-namespace:Anime.ViewModels"
              x:Class="Anime.Views.SearchView"
-             BackgroundColor="#272726">
-    <ContentPage.Resources>
+             BackgroundColor="#272726"
+             >
+    <d:ContentView.BindingContext>
+        <vm:SearchViewModel/>
+    </d:ContentView.BindingContext>
+    <ContentView.Resources>
         <DataTemplate x:Key="categoriesTemplate">
             <controls:XFrame BorderWidth="8" FlexLayout.Basis="33.3%"
                              BorderColor="#941E82" Padding="5" BackgroundColor="#1D1D1B" Margin="5">
@@ -13,9 +21,9 @@
                        TextColor="#B8A4CF" FontSize="13" LineBreakMode="TailTruncation"/>
             </controls:XFrame>
         </DataTemplate>
-    </ContentPage.Resources>
+    </ContentView.Resources>
 
-    <ContentPage.Content>
+    <ContentView.Content>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -61,5 +69,5 @@
 
         </Grid>
 
-    </ContentPage.Content>
-</ContentPage>
+    </ContentView.Content>
+</ContentView>

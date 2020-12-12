@@ -1,4 +1,5 @@
 ﻿using Anime.Models;
+using Anime.Navigable;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,14 +9,14 @@ using Xamarin.Forms;
 
 namespace Anime.ViewModels
 {
-    public class ProfileViewModel
+    public class ProfileViewModel : ANavigableViewModel
     {
         public event EventHandler<string> SelectionChangedEv;
 
         public UserModel User { get; set; }
         public ObservableCollection<AnimeModel> History { get; set; }
 
-        public ProfileViewModel()
+        public ProfileViewModel(INavigationService navigationService) : base(navigationService)
         {
             User = new UserModel() {
                 Name = "Евгений",

@@ -11,19 +11,11 @@ using Xamarin.Forms.Xaml;
 namespace Anime.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProfileView : ContentPage
+    public partial class ProfileView : ContentView
     {
         public ProfileView()
         {
             InitializeComponent();
-            ProfileViewModel vm = new ProfileViewModel();
-            vm.SelectionChangedEv += Vm_SelectionChangedEv;
-            this.BindingContext = vm;
-        }
-
-        private void Vm_SelectionChangedEv(object sender, string e)
-        {
-            DisplayAlert("selected", e, "ok");
         }
     }
 }

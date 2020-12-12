@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             mc:Ignorable="d"
+             x:Class="Anime.Views.BottomTabsView"
+             xmlns:vm="clr-namespace:Anime.ViewModels"
+             xmlns:view="clr-namespace:Anime.Views"
+             xmlns:sho="http://sharpnado.com"
+             NavigationPage.HasNavigationBar="False">
+    <d:ContentPage.BindingContext>
+        <vm:BottomTabsViewModel/>
+    </d:ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="55"/>
+            </Grid.RowDefinitions>
+
+            <sho:ViewSwitcher x:Name="Switcher" Animate="False" SelectedIndex="{Binding SelectedViewModelIndex,Mode=TwoWay}">
+                <sho:LazyView x:TypeArguments="view:HomeView" BindingContext="{Binding HomeViewModel}"/>
+                <sho:LazyView x:TypeArguments="view:SearchView" BindingContext="{Binding SearchViewModel}"/>
+                <sho:LazyView x:TypeArguments="view:ProfileView" BindingContext="{Binding ProfileViewModel}"/>
+            </sho:ViewSwitcher>
+
+            <sho:TabHostView Grid.Row="1" 
+                             BackgroundColor="#313130"
+                             TabType="Fixed"
+                             HorizontalOptions="Fill"
+                             VerticalOptions="Center"
+                             IsSegmented="False"
+                             SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
+                <sho:TabHostView.Tabs>
+                    <sho:BottomTabItem IconImageSource="ic_home.png"
+                                       IsTextVisible="False"
+                                       UnselectedIconColor="#941E82"/>
+                    
+                    <sho:BottomTabItem IconImageSource="ic_search.png"
+                                       IsTextVisible="False"
+                                       UnselectedIconColor="#941E82"/>
+                    
+                    <sho:BottomTabItem IconImageSource="ic_person.png"
+                                       IsTextVisible="False"
+                                       UnselectedIconColor="#941E82"/>
+                    
+                </sho:TabHostView.Tabs>
+            </sho:TabHostView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

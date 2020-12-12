@@ -5,17 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
 
 namespace Anime.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ShellView : Shell
+    public partial class BottomTabsView : ContentPage, IBindablePage
     {
-        public ShellView()
+        public BottomTabsView()
         {
             InitializeComponent();
+            Switcher.SelectedIndex = 0;
         }
     }
 }

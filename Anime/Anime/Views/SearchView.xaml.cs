@@ -11,20 +11,11 @@ using Xamarin.Forms.Xaml;
 namespace Anime.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SearchView : ContentPage
+    public partial class SearchView : ContentView
     {
         public SearchView()
         {
             InitializeComponent();
-
-            SearchViewModel vm = new SearchViewModel();
-            vm.SelectionChangedEv += Vm_SelectionChangedEv;
-            this.BindingContext = vm;
-        }
-
-        private void Vm_SelectionChangedEv(object sender, string e)
-        {
-            DisplayAlert("selected", e, "ok");
         }
     }
 }

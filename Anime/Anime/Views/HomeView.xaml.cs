@@ -6,22 +6,11 @@ using Xamarin.Forms.Xaml;
 namespace Anime.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HomeView : ContentPage
+    public partial class HomeView : ContentView
     {
         public HomeView()
         {
             InitializeComponent();
-
-            HomeViewModel vm = new HomeViewModel();
-            vm.SelectionChangedEv += Vm_SelectionChangedEv;
-            BindingContext = vm;
-
         }
-
-        private void Vm_SelectionChangedEv(object sender, string e)
-        {
-            DisplayAlert("selected", e, "ok");
-        }
-
     }
 }
