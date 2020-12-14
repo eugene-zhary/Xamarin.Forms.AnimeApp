@@ -1,7 +1,6 @@
 ﻿using Anime.Navigable;
 using Anime.ViewModels;
 using Anime.Views;
-using MetroLog;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

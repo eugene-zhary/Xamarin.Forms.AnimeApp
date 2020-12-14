@@ -1,11 +1,7 @@
 ﻿using Anime.Navigable;
-using MetroLog;
-using MetroLog.Targets;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -46,15 +42,6 @@ namespace Anime
                                      type.Name.EndsWith("ViewModel"))) {
                 container.Register(viewModelType);
             }
-
-            InitializeLogTargets();
-        }
-
-        private void InitializeLogTargets()
-        {
-            var config = new LoggingConfiguration();
-            config.AddTarget(LogLevel.Info, LogLevel.Fatal, new DebugTarget());
-            LoggerFactory.Inititalize(config);
         }
     }
 }

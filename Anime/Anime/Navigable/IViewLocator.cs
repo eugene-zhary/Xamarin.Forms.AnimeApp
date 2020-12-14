@@ -16,17 +16,8 @@ namespace Anime.Navigable
         IBindablePage GetViewFor<TViewModel>()
             where TViewModel : ANavigableViewModel;
 
-        // Builds the view matching the given [view model type + transition].
-        // Binds the view model instance to the created view.
-        IBindablePage GetViewFor<TViewModel>(TViewModel viewModel, NavigationTransition transition)
-            where TViewModel : ANavigableViewModel;
-
         // Gets the view type matching the given view model.
         Type GetViewTypeFor<TViewModel>()
-            where TViewModel : ANavigableViewModel;
-
-        // Gets the view type matching the given view model and transition.
-        Type GetViewTypeFor<TViewModel>(TViewModel viewModel, NavigationTransition transition)
             where TViewModel : ANavigableViewModel;
     }
 }

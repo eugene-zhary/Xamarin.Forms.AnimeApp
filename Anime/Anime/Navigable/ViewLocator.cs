@@ -23,22 +23,10 @@ namespace Anime.Navigable
             return view;
         }
 
-        public IBindablePage GetViewFor<TViewModel>(TViewModel viewModel, NavigationTransition transition) where TViewModel : ANavigableViewModel
-        {
-            var view = (IBindablePage)DependencyContainer.Instance.GetInstance(
-                ViewLocatorDictionary[$"{viewModel.GetType().Name}+{transition}"]);
-            view.BindingContext = viewModel;
-            return view;
-        }
-
         public Type GetViewTypeFor<TViewModel>() where TViewModel : ANavigableViewModel
         {
             return ViewLocatorDictionary[typeof(TViewModel).Name];
         }
 
-        public Type GetViewTypeFor<TViewModel>(TViewModel viewModel, NavigationTransition transition) where TViewModel : ANavigableViewModel
-        {
-            return ViewLocatorDictionary[$"{viewModel.GetType().Name}+{transition}"];
-        }
     }
 }

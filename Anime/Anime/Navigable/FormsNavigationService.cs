@@ -67,20 +67,5 @@ namespace Anime.Navigable
                 return;
             }
         }
-
-        public async Task NavigateToAsync<TViewModel>(TViewModel viewModel, NavigationTransition transition, bool rootChild = false) where TViewModel : ANavigableViewModel
-        {
-            var view = viewLocator.GetViewFor(viewModel, transition);
-            await NavigationPage.PushAsync((Page)view, true);
-
-            if (rootChild) {
-                foreach (var page in FormsNavigation
-                                            .NavigationStack
-                                            .Take(FormsNavigation.NavigationStack.Count - 1)
-                                            .Skip(1)) {
-                    FormsNavigation.RemovePage(page);
-                }
-            }
-        }
     }
 }
