@@ -29,21 +29,25 @@
                              BackgroundColor="#313130"
                              TabType="Fixed"
                              HorizontalOptions="Fill"
-                             VerticalOptions="Center"
+                             VerticalOptions="Fill"
                              IsSegmented="False"
                              SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
+                
                 <sho:TabHostView.Tabs>
                     <sho:BottomTabItem IconImageSource="ic_home.png"
                                        IsTextVisible="False"
-                                       UnselectedIconColor="#941E82"/>
+                                       UnselectedIconColor="#941E82"
+                                       />
                     
                     <sho:BottomTabItem IconImageSource="ic_search.png"
                                        IsTextVisible="False"
-                                       UnselectedIconColor="#941E82"/>
+                                       UnselectedIconColor="#941E82"
+                                       />
                     
                     <sho:BottomTabItem IconImageSource="ic_person.png"
                                        IsTextVisible="False"
-                                       UnselectedIconColor="#941E82"/>
+                                       UnselectedIconColor="#941E82"
+                                       />
                     
                 </sho:TabHostView.Tabs>
             </sho:TabHostView>
