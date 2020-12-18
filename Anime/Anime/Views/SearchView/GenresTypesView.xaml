@@ -14,7 +14,7 @@
                    TextColor="#941E82" FontSize="18" FontAttributes="Bold" FontFamily="Consolas"/>
 
             <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
-                <controls:FlexableView ItemsSource="{Binding AnimeGenres, Mode=OneWay}" AlignContent="Start" Wrap="Wrap" AlignItems="Center">
+                <controls:FlexableView ItemsSource="{Binding DataCollection, Mode=OneWay}" AlignContent="Start" Wrap="Wrap" AlignItems="Center">
                     
                     <!--<controls:FlexableView.Behaviors>
                         <behaviors:FlexLayoutItemTappedBehavior Command="{Binding TappedOnItem, Mode=OneWay}" Paramater="{Binding}"/>

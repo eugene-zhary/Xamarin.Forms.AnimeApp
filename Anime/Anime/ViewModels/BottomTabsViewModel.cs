@@ -1,4 +1,5 @@
 ﻿using Anime.Navigable;
+using System.Threading.Tasks;
 
 namespace Anime.ViewModels
 {
@@ -23,11 +24,11 @@ namespace Anime.ViewModels
         public ProfileViewModel ProfileViewModel { get; set; }
 
 
-        public override void Load()
+        public override async Task Load()
         {
-            HomeViewModel.Load();
-            SearchViewModel.Load();
-            ProfileViewModel.Load();
+            await HomeViewModel.Load();
+            await SearchViewModel.Load();
+            await ProfileViewModel.Load();
         }
     }
 }

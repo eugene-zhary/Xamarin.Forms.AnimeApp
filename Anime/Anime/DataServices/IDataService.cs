@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Anime.DataServices
@@ -12,7 +10,7 @@ namespace Anime.DataServices
 
     public interface IDataService
     {
-        string[] GetData(DataType type);
+        Task<string[]> GetData(DataType type);
     }
 
     public static class ServerInfo

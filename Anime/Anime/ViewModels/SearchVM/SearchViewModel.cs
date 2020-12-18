@@ -1,5 +1,6 @@
 ﻿using Anime.Navigable;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -22,10 +23,10 @@ namespace Anime.ViewModels
             GenresViewModel = new GenresViewModel(navigationService);
         }
 
-        public override void Load()
+        public override async Task Load()
         {
-            TypesViewModel.Load();
-            GenresViewModel.Load();
+            await TypesViewModel.Load();
+            await GenresViewModel.Load();
         }
     }
 }

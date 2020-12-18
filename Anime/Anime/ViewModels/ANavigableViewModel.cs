@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Anime.ViewModels
 {
@@ -18,7 +19,10 @@ namespace Anime.ViewModels
         }
 
 
-        public virtual void Load() { }
+        public virtual Task Load()
+        {
+            return Task.CompletedTask;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

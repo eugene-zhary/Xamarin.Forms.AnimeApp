@@ -1,23 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Anime.DataServices
 {
     public class DataService : IDataService
     {
-        public string[] GetData(DataType type)
+        public async Task<string[]> GetData(DataType type)
         {
             string[] result;
             using (SqlConnection connection = new SqlConnection(ServerInfo.ConnectionPath)) {
-                connection.Open();
+                await connection.OpenAsync();
 
                 using (SqlCommand command = new SqlCommand(ServerInfo.GetCommand(type), connection)) {
                     SqlDataReader data = command.ExecuteReader();
                     result = new string[0];
-                    while (data.Read()) {
+                    while (await data.ReadAsync()) {
                         Array.Resize(ref result, result.Length + 1);
 
                         for (int i = 0; i < data.FieldCount; i++) {
