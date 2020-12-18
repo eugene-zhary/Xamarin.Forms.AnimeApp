@@ -4,19 +4,18 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
-using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace Anime.ViewModels
 {
-    public class HomeViewModel : ANavigableViewModel
+    public class HistoryViewModel  : ANavigableViewModel
     {
-        public event EventHandler<string> SelectionChangedEv;
-        public ObservableCollection<AnimeModel> TestItems { get; set; }
+        public string Header { get; set; }
+        public ObservableCollection<AnimeModel> History { get; set; }
 
-        public HomeViewModel(INavigationService navigationService) :base(navigationService)
+        public HistoryViewModel(INavigationService navigationService) : base(navigationService)
         {
-            TestItems = new ObservableCollection<AnimeModel>() {
+            Header = "ИСТОРИЯ";
+            History = new ObservableCollection<AnimeModel>() {
                 new AnimeModel(){ImgPath="naruto.jpg" ,Title = "Naruto", Rating="8/10"},
                 new AnimeModel(){ImgPath="berserk.jpg" ,Title = "Berserk", Rating="8/10"},
                 new AnimeModel(){ImgPath="bleach.jpg" ,Title = "Bleach", Rating="8/10"},
@@ -26,10 +25,5 @@ namespace Anime.ViewModels
                 new AnimeModel(){ImgPath="rezero.jpg" ,Title = "Re:zero", Rating="6/10"},
             };
         }
-
-        public ICommand TappedOnItem => new Command((item) => {
-            if(item is AnimeModel anime)
-                SelectionChangedEv?.Invoke(this, anime.Title);
-        });
     }
 }

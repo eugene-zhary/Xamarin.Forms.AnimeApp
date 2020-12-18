@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Anime.Controls"
+             xmlns:behaviors="clr-namespace:Anime.Behaviors"
+             x:Class="Anime.Views.TopView">
+
+    <ContentView.Content>
+        <StackLayout>
+                <!--panel description-->
+                <Label Text="{Binding Header}"
+                           TextColor="#941E82" FontSize="16" FontAttributes="Bold" FontFamily="Consolas"/>
+
+                <!--main panel-->
+                <ScrollView VerticalScrollBarVisibility="Never" >
+                    <controls:FlexableView ItemsSource="{Binding TestItems}"
+                                               AlignContent="Start" Wrap="Wrap" AlignItems="Center">
+                        <!--<controls:FlexableView.Behaviors>
+                            <behaviors:FlexLayoutItemTappedBehavior Command="{Binding TappedOnItem}" Paramater="{Binding}"/>
+                        </controls:FlexableView.Behaviors>-->
+
+                        <controls:FlexableView.ItemTemplate>
+                            <DataTemplate>
+                                <controls:XFrame BorderWidth="8" FlexLayout.Basis="50%"
+                                                     BorderColor="#941E82" Padding="0" Margin="10" BackgroundColor="#1D1D1B">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="2"/>
+                                        </Grid.RowDefinitions>
+
+                                        <controls:XFrame BorderWidth="8" Margin="0" Padding="0" BorderColor="#941E82">
+                                            <Image Source="{Binding ImgPath}" Aspect="AspectFill"
+                                                    HeightRequest="180"/>
+                                        </controls:XFrame>
+
+                                        <Label Grid.Row="1" Text="{Binding Title}" 
+                                                   TextColor="#B8A4CF" Margin="6,0,0,0" FontSize="13" FontAttributes="Bold"/>
+                                        <Label Grid.Row="2" Text="{Binding Rating, StringFormat='Rate: {0}'}" 
+                                                   TextColor="#B8A4CF" Margin="6,0,0,0" FontSize="13" FontAttributes="Bold"/>
+                                    </Grid>
+                                </controls:XFrame>
+                            </DataTemplate>
+                        </controls:FlexableView.ItemTemplate>
+                    </controls:FlexableView>
+                </ScrollView>
+            </StackLayout>
+    </ContentView.Content>
+</ContentView>

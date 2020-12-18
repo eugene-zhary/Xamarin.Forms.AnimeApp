@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:controls="clr-namespace:Anime.Controls"
+             xmlns:local="clr-namespace:Anime.Views"
+             x:Class="Anime.Views.HomeView"
+             BackgroundColor="#313130">
+    <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--left top right bottom-->
+            <Button Text="Рекомендации" 
+                    FontSize="18" HeightRequest="65" TextColor="#B8A4CF" BackgroundColor="#1D1D1B"
+                    BorderColor="#941E82" BorderWidth="4" CornerRadius="15" Margin="30,30,30,20"/>
+
+            <controls:XFrame Grid.Row="1" MultiCornerRadius="15,15,0,0"
+                             BackgroundColor="#272726" Padding="20,20,20,0">
+                <local:TopView BindingContext="{Binding TopViewModel}"/>
+            </controls:XFrame>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

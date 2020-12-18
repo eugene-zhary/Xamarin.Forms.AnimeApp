@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Anime.Views.UserInfoView"
+             xmlns:controls="clr-namespace:Anime.Controls">
+  <ContentView.Content>
+        <Grid BindingContext="{Binding User,Mode=OneWay}" Margin="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--IMAGE-->
+            <controls:XFrame Margin="0" Padding="5" BorderWidth="8"
+                                 BorderColor="#941E82" BackgroundColor="#1D1D1B">
+                <Image Source="{Binding ImgPath,Mode=OneWay}" Aspect="AspectFill" WidthRequest="180" HeightRequest="180"/>
+            </controls:XFrame>
+
+            <!--NAME, BDAY, SEX-->
+            <Grid Grid.Column="1" Margin="0,5,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Text="{Binding Name,Mode=OneWay}" FontSize="18" Grid.Row="0"
+                           Margin="5,0,0,0" TextColor="#B8A4CF" />
+                <Label Text="Username" Grid.Row="1"
+                           FontSize="9" TextColor="#941E82" Margin="10,-10,0,0"/>
+
+                <Label Text="{Binding BDay, StringFormat='{0:d}',Mode=OneWay}" Grid.Row="2"
+                           TextColor="#B8A4CF" Margin="5,0,0,0" FontSize="13"/>
+                <Label Text="BDay" Grid.Row="3"
+                           FontSize="9" TextColor="#941E82" Margin="10,-10,0,0"/>
+
+                <Label Text="{Binding Sex,Mode=OneWay}" Grid.Row="4"
+                           TextColor="#B8A4CF" Margin="5,0,0,0" FontSize="13"/>
+                <Label Text="Sex" Grid.Row="5"
+                           FontSize="9" TextColor="#941E82" Margin="10,-10,0,0"/>
+            </Grid>
+
+            <!--BIOGRAPHY-->
+            <Label Text="{Binding AboutMe,Mode=OneWay}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+                       Margin="5,5,0,0" TextColor="#B8A4CF" FontSize="13"/>
+            <Label Text="Bio" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"
+                        FontSize="9" TextColor="#941E82" Margin="10,-10,0,0"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
