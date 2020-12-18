@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anime.Android", "Anime\Anime.Android\Anime.Android.csproj", "{96D04057-3DE3-4554-B280-2E0C81F39025}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anime", "Anime\Anime\Anime.csproj", "{207FE9A2-9A10-4512-A90B-D7A81508C575}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anime", "Anime\Anime\Anime.csproj", "{207FE9A2-9A10-4512-A90B-D7A81508C575}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

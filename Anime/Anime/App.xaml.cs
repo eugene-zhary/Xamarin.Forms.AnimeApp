@@ -21,7 +21,7 @@ namespace Anime
 
             MainPage = new NavigationPage((Page)firstScreenView);
             var firstScreenVm = (ANavigableViewModel)firstScreenView.BindingContext;
-            firstScreenVm.Load(null);
+            firstScreenVm.Load();
         }
 
         

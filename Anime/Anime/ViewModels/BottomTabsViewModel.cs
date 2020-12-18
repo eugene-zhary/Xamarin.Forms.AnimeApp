@@ -22,11 +22,12 @@ namespace Anime.ViewModels
         public SearchViewModel SearchViewModel { get; set; }
         public ProfileViewModel ProfileViewModel { get; set; }
 
-        public override void Load(object parameter)
+
+        public override void Load()
         {
-            HomeViewModel.Load(parameter);
-            SearchViewModel.Load(parameter);
-            ProfileViewModel.Load(parameter);
+            HomeViewModel.Load();
+            SearchViewModel.Load();
+            ProfileViewModel.Load();
         }
     }
 }

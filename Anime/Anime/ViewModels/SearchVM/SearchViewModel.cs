@@ -7,8 +7,8 @@ namespace Anime.ViewModels
 {
     public class SearchViewModel : ANavigableViewModel
     {
-        public GenresViewModel GenresViewModel { get; set; }
         public TypesViewModel TypesViewModel { get; set; }
+        public GenresViewModel GenresViewModel { get; set; }
 
         private bool isRefresh;
         public bool IsRefresh {
@@ -18,8 +18,14 @@ namespace Anime.ViewModels
 
         public SearchViewModel(INavigationService navigationService) : base(navigationService)
         {
-            GenresViewModel = new GenresViewModel(navigationService);
             TypesViewModel = new TypesViewModel(navigationService);
+            GenresViewModel = new GenresViewModel(navigationService);
+        }
+
+        public override void Load()
+        {
+            TypesViewModel.Load();
+            GenresViewModel.Load();
         }
     }
 }
