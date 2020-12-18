@@ -18,9 +18,11 @@
             <!--USER INFO-->
             <local:UserInfoView BindingContext="{Binding UserInfoViewModel}"/>
 
+            
+            
             <!--HISTORY-->
             <controls:XFrame Grid.Row="1" MultiCornerRadius="15,15,0,0"
-                             Padding="20,20,20,0" BackgroundColor="#272726">
+                             Padding="10,10,10,0" BackgroundColor="#272726">
                 <local:HistoryView BindingContext="{Binding HistoryViewModel}"/>
             </controls:XFrame>
         </Grid>

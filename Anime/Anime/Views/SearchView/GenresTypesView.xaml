@@ -5,10 +5,15 @@
              xmlns:controls="clr-namespace:Anime.Controls"
              xmlns:behaviors="clr-namespace:Anime.Behaviors">
     <ContentView.Content>
-        <StackLayout>
-            <Label Text="{Binding Header, Mode=OneWay}" TextColor="#941E82" FontSize="16" FontAttributes="Bold" FontFamily="Consolas"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="{Binding Header, Mode=OneWay}" Margin="10,0,0,0"
+                   TextColor="#941E82" FontSize="18" FontAttributes="Bold" FontFamily="Consolas"/>
 
-            <ScrollView VerticalScrollBarVisibility="Never">
+            <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
                 <controls:FlexableView ItemsSource="{Binding AnimeGenres, Mode=OneWay}" AlignContent="Start" Wrap="Wrap" AlignItems="Center">
                     
                     <!--<controls:FlexableView.Behaviors>
@@ -27,6 +32,6 @@
                     
                 </controls:FlexableView>
             </ScrollView>
-        </StackLayout>
+        </Grid>
     </ContentView.Content>
 </ContentView>

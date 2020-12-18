@@ -5,12 +5,18 @@
              xmlns:controls="clr-namespace:Anime.Controls"
              xmlns:behaviors="clr-namespace:Anime.Behaviors">
   <ContentView.Content>
-        <StackLayout>
+        <Grid RowSpacing="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
             <!--PANEL DESCRIOPTION-->
-            <Label Text="{Binding Header,Mode=OneTime}" TextColor="#941E82"  FontSize="16" FontAttributes="Bold" FontFamily="Consolas"/>
+            <Label Text="{Binding Header,Mode=OneTime}"  Margin="10,0,0,0"
+                   TextColor="#941E82"  FontSize="18" FontAttributes="Bold" FontFamily="Consolas"/>
 
             <!--MAIN PANEL-->
-            <ScrollView VerticalScrollBarVisibility="Never">
+            <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
                 <controls:FlexableView ItemsSource="{Binding History, Mode=OneWay}" AlignItems="Stretch" Wrap="NoWrap" Direction="Column">
                     <!--<controls:FlexableView.Behaviors>
                         <behaviors:FlexLayoutItemTappedBehavior Command="{Binding TappedOnItem}" Paramater="{Binding}"/>
@@ -36,6 +42,8 @@
                     </controls:FlexableView.ItemTemplate>
                 </controls:FlexableView>
             </ScrollView>
-        </StackLayout>
+
+        </Grid>
+      
     </ContentView.Content>
 </ContentView>

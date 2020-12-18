@@ -6,13 +6,17 @@
              x:Class="Anime.Views.TopView">
 
     <ContentView.Content>
-        <StackLayout>
+        <Grid RowSpacing="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
                 <!--panel description-->
-                <Label Text="{Binding Header}"
-                           TextColor="#941E82" FontSize="16" FontAttributes="Bold" FontFamily="Consolas"/>
+                <Label Text="{Binding Header}" Margin="10,0,0,0"
+                           TextColor="#941E82" FontSize="18" FontAttributes="Bold" FontFamily="Consolas"/>
 
                 <!--main panel-->
-                <ScrollView VerticalScrollBarVisibility="Never" >
+                <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
                     <controls:FlexableView ItemsSource="{Binding TestItems}"
                                                AlignContent="Start" Wrap="Wrap" AlignItems="Center">
                         <!--<controls:FlexableView.Behaviors>
@@ -33,7 +37,7 @@
 
                                         <controls:XFrame BorderWidth="8" Margin="0" Padding="0" BorderColor="#941E82">
                                             <Image Source="{Binding ImgPath}" Aspect="AspectFill"
-                                                    HeightRequest="180"/>
+                                                    HeightRequest="200"/>
                                         </controls:XFrame>
 
                                         <Label Grid.Row="1" Text="{Binding Title}" 
@@ -46,6 +50,6 @@
                         </controls:FlexableView.ItemTemplate>
                     </controls:FlexableView>
                 </ScrollView>
-            </StackLayout>
+            </Grid>
     </ContentView.Content>
 </ContentView>
