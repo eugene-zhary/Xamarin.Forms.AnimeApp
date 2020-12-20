@@ -18,7 +18,7 @@
             <!--IMAGE-->
             <controls:XFrame Margin="0" Padding="5" BorderWidth="8"
                                  BorderColor="#941E82" BackgroundColor="#1D1D1B">
-                <Image Source="{Binding ImgPath,Mode=OneWay}" Aspect="AspectFill" WidthRequest="180" HeightRequest="180"/>
+                <Image Source="{Binding ImgUrl,Mode=OneWay}" Aspect="AspectFill" WidthRequest="180" HeightRequest="180"/>
             </controls:XFrame>
 
             <!--NAME, BDAY, SEX-->

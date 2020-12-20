@@ -3,78 +3,117 @@ using System;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Threading.Tasks;
 
 namespace Anime.DataServices
 {
-    public enum DataType
+    public static class DataService
     {
-        Types,
-        Genrs,
-        Anime,
-        
-    };
-
-    public class DataService
-    {
-        private static ObservableCollection<CategoryModel> GetCategory(DataType type, in SqlConnection connection)
-        {
-            var result = new ObservableCollection<CategoryModel>();
-
-            using (SqlCommand command = new SqlCommand(ServerInfo.GetProc(type), connection)) {
-
-                command.CommandType = CommandType.StoredProcedure;
-                SqlDataReader data = command.ExecuteReader();
-
-                while (data.Read()) {
-                    for (int i = 0; i < data.FieldCount; i++) {
-                        result.Add(new CategoryModel() { Name = data.GetValue(i).ToString() });
-                    }
-                }
-            }
-
-            return result;
-        }
-
-
         public static object GetData(DataType type)
         {
-            object result;
-
             using (SqlConnection connection = new SqlConnection(ServerInfo.ConnectionPath)) {
                 connection.Open();
 
                 switch (type) {
                     case DataType.Genrs:
-                        result = GetCategory(DataType.Genrs, connection);
-                        break;
+                        return GetCategory(connection, DataType.Genrs);
 
                     case DataType.Types:
-                        result = GetCategory(DataType.Types, connection);
-                        break;
+                        return GetCategory(connection, DataType.Types);
+
+                    case DataType.Anime:
+                        return GetAnime(connection, DataType.Anime);
+
+                    case DataType.History:
+                        //user id
+                        return GetAnime(connection, DataType.History, "@user_id", 1);
+
+                    case DataType.User:
+                        //user id
+                        return GetUserInfo(connection, DataType.User, "@user_id", 1);
 
                     default:
                         throw new Exception("error type");
                 }
+            }
+        }
 
-                connection.Close();
+        private static object GetUserInfo(SqlConnection connection, DataType type, string name, object value)
+        {
+            var result = new UserModel();
+
+            using (SqlCommand command = new SqlCommand(ServerInfo.GetProc(type), connection)) {
+                command.CommandType = CommandType.StoredProcedure;
+
+                if (name != null && value != null) {
+                    command.Parameters.Add(name, SqlDbType.Int);
+                    command.Parameters[name].Value = value;
+                }
+
+                SqlDataReader data = command.ExecuteReader();
+
+                while (data.Read()) {
+                    //0 - name
+                    //1 - bday
+                    //2 - sex
+                    //3 - about me
+                    //4 - img url
+                    result = new UserModel() {
+                        Name = data.GetValue(0).ToString(),
+                        BDay = DateTime.Parse(data.GetValue(1).ToString()),
+                        Sex = data.GetValue(2).ToString(),
+                        AboutMe = data.GetValue(3).ToString(),
+                        ImgUrl = data.GetValue(4).ToString()
+                    };
+                }
             }
 
             return result;
         }
 
+        private static object GetAnime(in SqlConnection connection, DataType type, string name = null, object value = null)
+        {
+            var result = new ObservableCollection<AnimeModel>();
 
+            using (SqlCommand command = new SqlCommand(ServerInfo.GetProc(type), connection)) {
+                command.CommandType = CommandType.StoredProcedure;
 
-        //private static T[,] ResizeArray<T>(in T[,] original, int rows, int cols)
-        //{
-        //    T[,] newArray = new T[rows, cols];
-        //    int minRows = Math.Min(rows, original.GetLength(0));
-        //    int minCols = Math.Min(cols, original.GetLength(1));
+                if (name != null && value != null) {
+                    command.Parameters.Add(name, SqlDbType.Int);
+                    command.Parameters[name].Value = value;
+                }
 
-        //    for (int i = 0; i < minRows; i++)
-        //        for (int j = 0; j < minCols; j++)
-        //            newArray[i, j] = original[i, j];
-        //    return newArray;
-        //}
+                SqlDataReader data = command.ExecuteReader();
+
+                while (data.Read()) {
+                    //0 - title
+                    //1 - rating
+                    //2 - url
+                    result.Add(new AnimeModel() {
+                        Title = data.GetValue(0).ToString(),
+                        Rating = data.GetValue(1).ToString(),
+                        ImgUrl = data.GetValue(2).ToString(),
+                    });
+                }
+            }
+
+            return result;
+        }
+
+        private static object GetCategory(in SqlConnection connection, DataType type)
+        {
+            var result = new ObservableCollection<CategoryModel>();
+
+            using (SqlCommand command = new SqlCommand(ServerInfo.GetProc(type), connection)) {
+                command.CommandType = CommandType.StoredProcedure;
+                SqlDataReader data = command.ExecuteReader();
+
+                while (data.Read()) {
+                    //0 - Name
+                    result.Add(new CategoryModel() { Name = data.GetValue(0).ToString() });
+                }
+            }
+
+            return result;
+        }
     }
 }

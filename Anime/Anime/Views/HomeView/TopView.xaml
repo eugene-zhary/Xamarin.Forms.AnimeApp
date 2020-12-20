@@ -19,9 +19,6 @@
             <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
                 <controls:FlexableView ItemsSource="{Binding AnimeCollection}"
                                                AlignContent="Start" Wrap="Wrap" AlignItems="Center">
-                    <!--<controls:FlexableView.Behaviors>
-                            <behaviors:FlexLayoutItemTappedBehavior Command="{Binding TappedOnItem}" Paramater="{Binding}"/>
-                        </controls:FlexableView.Behaviors>-->
                     <controls:FlexableView.ItemTemplate>
                         <DataTemplate>
                             <controls:XFrame BorderWidth="8" FlexLayout.Basis="50%"
@@ -35,11 +32,11 @@
                                     </Grid.RowDefinitions>
 
                                     <controls:XFrame BorderWidth="8" Margin="0" Padding="0" BorderColor="#941E82">
-                                        <Image Source="{Binding ImgPath}" Aspect="AspectFill"
+                                        <Image Source="{Binding ImgUrl}" Aspect="AspectFill"
                                                     HeightRequest="200"/>
                                     </controls:XFrame>
 
-                                    <Label Grid.Row="1" Text="{Binding Title}" 
+                                    <Label Grid.Row="1" Text="{Binding Title}" LineBreakMode="TailTruncation"
                                                    TextColor="#B8A4CF" Margin="6,0,0,0" FontSize="13" FontAttributes="Bold"/>
                                     <Label Grid.Row="2" Text="{Binding Rating, StringFormat='Rate: {0}'}" 
                                                    TextColor="#B8A4CF" Margin="6,0,0,0" FontSize="13" FontAttributes="Bold"/>
