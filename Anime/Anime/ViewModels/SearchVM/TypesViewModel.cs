@@ -12,24 +12,17 @@ namespace Anime.ViewModels
         public string Header { get; set; }
         public ObservableCollection<string> DataCollection { get; set; }
 
+
         public TypesViewModel(INavigationService navigationService) : base(navigationService)
         {
             this.Header = "ТИПЫ";
             this.DataCollection = new ObservableCollection<string>();
-        }
 
-        public override async Task Load()
-        {
-            var data = await DataService.GetData(DataType.AnimeTypes);
+            var data = DataService.GetData(DataType.AnimeTypes);
 
             for (int i = 0; i < data.GetLength(0); i++) {
                 DataCollection.Add(data[i, 0].ToString());
             }
         }
-
-
-        public ICommand TappedOnItem => new Command((item) => {
-
-        });
     }
 }

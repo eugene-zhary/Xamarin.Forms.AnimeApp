@@ -11,28 +11,10 @@ namespace Anime.ViewModels
         public TypesViewModel TypesViewModel { get; set; }
         public GenresViewModel GenresViewModel { get; set; }
 
-        private bool isRefresh;
-        public bool IsRefresh {
-            get => isRefresh;
-            set => Set(ref isRefresh, value);
-        }
-
         public SearchViewModel(INavigationService navigationService) : base(navigationService)
         {
             TypesViewModel = new TypesViewModel(navigationService);
             GenresViewModel = new GenresViewModel(navigationService);
         }
-
-        public override async Task Load()
-        {
-            isRefresh = true;
-            await TypesViewModel.Load();
-            await GenresViewModel.Load();
-            isRefresh = false;
-        }
-
-        public ICommand Refresh => new Command(async()=> {
-            await Load();
-        });
     }
 }

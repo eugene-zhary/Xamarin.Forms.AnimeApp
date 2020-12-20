@@ -12,8 +12,12 @@ namespace Anime.Navigable
             {nameof(HomeViewModel), typeof(HomeView) },
             {nameof(SearchViewModel), typeof(SearchView) },
             {nameof(ProfileViewModel), typeof(ProfileView) },
+            {nameof(TopViewModel),typeof(TopView) },
+            {nameof(HistoryViewModel), typeof(HistoryView) },
+            {nameof(UserInfoViewModel),typeof(UserInfoView) },
+            {nameof(GenresViewModel),typeof(GenresTypesView) },
+            {nameof(TypesViewModel),typeof(GenresTypesView) }
         };
-
 
         public IBindablePage GetViewFor<TViewModel>() where TViewModel : ANavigableViewModel
         {

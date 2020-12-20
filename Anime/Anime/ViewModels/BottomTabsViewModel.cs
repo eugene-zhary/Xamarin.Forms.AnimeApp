@@ -22,13 +22,5 @@ namespace Anime.ViewModels
         public HomeViewModel HomeViewModel { get; set; }
         public SearchViewModel SearchViewModel { get; set; }
         public ProfileViewModel ProfileViewModel { get; set; }
-
-
-        public override async Task Load()
-        {
-            await HomeViewModel.Load();
-            await SearchViewModel.Load();
-            await ProfileViewModel.Load();
-        }
     }
 }

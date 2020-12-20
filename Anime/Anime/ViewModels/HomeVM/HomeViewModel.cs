@@ -1,12 +1,4 @@
-﻿using Anime.Models;
-using Anime.Navigable;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using Xamarin.Forms;
+﻿using Anime.Navigable;
 
 namespace Anime.ViewModels
 {
@@ -18,11 +10,5 @@ namespace Anime.ViewModels
         {
             TopViewModel = new TopViewModel(navigationService);
         }
-
-        public override async Task Load()
-        {
-            await TopViewModel.Load();
-        }
-
     }
 }

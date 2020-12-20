@@ -16,20 +16,14 @@ namespace Anime.ViewModels
         {
             this.Header = "ЖАНРЫ";
             this.DataCollection = new ObservableCollection<string>();
-        }
 
-        public override async Task Load()
-        {
-            var data = await DataService.GetData(DataType.AnimeGenrs);
+
+            var data = DataService.GetData(DataType.AnimeGenrs);
 
             for (int i = 0; i < data.GetLength(0); i++) {
                 DataCollection.Add(data[i, 0].ToString());
             }
         }
 
-
-        public ICommand TappedOnItem => new Command((item) => {
-
-        });
     }
 }

@@ -39,7 +39,7 @@ namespace Anime.Navigable
         {
             var view = viewLocator.GetViewFor<TViewModel>();
             await NavigationPage.PushAsync((Page)view);
-            await ((ANavigableViewModel)view.BindingContext).Load();
+            //((ANavigableViewModel)view.BindingContext).Load();
 
             foreach (var page in FormsNavigation
                                             .NavigationStack
@@ -63,7 +63,7 @@ namespace Anime.Navigable
                 }
                 //Then we want to go back to root page and clear the stack
                 await NavigationPage.PopToRootAsync(animated);
-                await ((ANavigableViewModel)rootPage.BindingContext).Load();
+                //((ANavigableViewModel)rootPage.BindingContext).Load();
                 return;
             }
         }
