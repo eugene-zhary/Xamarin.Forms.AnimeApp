@@ -9,6 +9,8 @@
              x:Class="Anime.Views.SearchView"
              BackgroundColor="#272726">
     <ContentView.Content >
+
+
         <Grid RowSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -28,5 +30,6 @@
                 <local:GenresTypesView BindingContext="{Binding GenresViewModel}"/>
             </controls:XFrame>
         </Grid>
+
     </ContentView.Content>
 </ContentView>

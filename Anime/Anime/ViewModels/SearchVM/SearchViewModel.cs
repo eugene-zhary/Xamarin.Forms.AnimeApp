@@ -14,7 +14,7 @@ namespace Anime.ViewModels
         private bool isRefresh;
         public bool IsRefresh {
             get => isRefresh;
-            set => SetAndRaise(ref isRefresh, value);
+            set => Set(ref isRefresh, value);
         }
 
         public SearchViewModel(INavigationService navigationService) : base(navigationService)
@@ -25,8 +25,14 @@ namespace Anime.ViewModels
 
         public override async Task Load()
         {
+            isRefresh = true;
             await TypesViewModel.Load();
             await GenresViewModel.Load();
+            isRefresh = false;
         }
+
+        public ICommand Refresh => new Command(async()=> {
+            await Load();
+        });
     }
 }

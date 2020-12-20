@@ -9,9 +9,6 @@ namespace Anime.ViewModels
 {
     public class TypesViewModel : ANavigableViewModel
     {
-        private IDataService dataService;
-
-
         public string Header { get; set; }
         public ObservableCollection<string> DataCollection { get; set; }
 
@@ -19,15 +16,14 @@ namespace Anime.ViewModels
         {
             this.Header = "ТИПЫ";
             this.DataCollection = new ObservableCollection<string>();
-            this.dataService = new DataService();
         }
 
         public override async Task Load()
         {
-            var data = await dataService.GetData(DataType.AnimeTypes);
+            var data = await DataService.GetData(DataType.AnimeTypes);
 
-            for (int i = 0; i < data.Length; i++) {
-                DataCollection.Add(data[i]);
+            for (int i = 0; i < data.GetLength(0); i++) {
+                DataCollection.Add(data[i, 0].ToString());
             }
         }
 

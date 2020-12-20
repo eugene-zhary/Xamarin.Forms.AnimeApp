@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -16,6 +17,11 @@ namespace Anime.ViewModels
         public HomeViewModel(INavigationService navigationService) :base(navigationService)
         {
             TopViewModel = new TopViewModel(navigationService);
+        }
+
+        public override async Task Load()
+        {
+            await TopViewModel.Load();
         }
 
     }

@@ -4,28 +4,49 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Anime.ViewModels
 {
     public class TopViewModel : ANavigableViewModel
     {
-        public string Header { get; set; }
-        public ObservableCollection<AnimeModel> TestItems { get; set; }
+        private bool isRefresh;
+        public bool IsRefresh {
+            get => isRefresh;
+            set => Set(ref isRefresh, value);
+        }
 
-        public TopViewModel (INavigationService navigationService) : base(navigationService)
+
+        public string Header { get; set; }
+        public ObservableCollection<AnimeModel> AnimeCollection { get; set; }
+
+        public TopViewModel(INavigationService navigationService) : base(navigationService)
         {
             this.Header = "ТОП 100";
-
-            TestItems = new ObservableCollection<AnimeModel>() {
-                new AnimeModel(){ImgPath="naruto.jpg" ,Title = "Naruto", Rating="8/10"},
-                new AnimeModel(){ImgPath="berserk.jpg" ,Title = "Berserk", Rating="8/10"},
-                new AnimeModel(){ImgPath="bleach.jpg" ,Title = "Bleach", Rating="8/10"},
-                new AnimeModel(){ImgPath="eva.jpg" ,Title = "Eva", Rating="5/10"},
-                new AnimeModel(){ImgPath="dragonball.jpg" ,Title = "Dragonball", Rating="9/10"},
-                new AnimeModel(){ImgPath="pokemon.jpg" ,Title = "Pokemon", Rating="9/10"},
-                new AnimeModel(){ImgPath="rezero.jpg" ,Title = "Re:zero", Rating="6/10"},
-            };
+            AnimeCollection = new ObservableCollection<AnimeModel>();
         }
+
+        public override async Task Load()
+        {
+            isRefresh = true;
+            var data = await DataServices.DataService.GetData(DataServices.DataType.Anime);
+
+            AnimeCollection.Clear();
+            for (int i = 0; i < data.GetLength(0); i++) {
+                AnimeCollection.Add(new AnimeModel() {
+                    Title = data[i, 0].ToString(),
+                    Rating = data[i, 1].ToString(),
+                    ImgPath= "https://cdn.myanimelist.net/images/anime/13/17405.jpg"
+                });
+            }
+            isRefresh = false;
+        }
+
+        public ICommand Refresh => new Command(async () => {
+            await Load();
+        });
 
     }
 }

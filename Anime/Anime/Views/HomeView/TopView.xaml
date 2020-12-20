@@ -11,18 +11,21 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-                <!--panel description-->
-                <Label Text="{Binding Header}" Margin="10,0,0,0"
+            <!--panel description-->
+            <Label Text="{Binding Header}" Margin="10,0,0,0"
                            TextColor="#941E82" FontSize="18" FontAttributes="Bold" FontFamily="Consolas"/>
 
-                <!--main panel-->
-                <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
-                    <controls:FlexableView ItemsSource="{Binding TestItems}"
+            <!--main panel-->
+            <RefreshView IsRefreshing="{Binding IsRefresh}" Grid.Row="1"
+                         Command="{Binding Refresh}">
+                <ScrollView  VerticalScrollBarVisibility="Never">
+
+
+                    <controls:FlexableView ItemsSource="{Binding AnimeCollection, Mode=TwoWay}"
                                                AlignContent="Start" Wrap="Wrap" AlignItems="Center">
                         <!--<controls:FlexableView.Behaviors>
                             <behaviors:FlexLayoutItemTappedBehavior Command="{Binding TappedOnItem}" Paramater="{Binding}"/>
                         </controls:FlexableView.Behaviors>-->
-
                         <controls:FlexableView.ItemTemplate>
                             <DataTemplate>
                                 <controls:XFrame BorderWidth="8" FlexLayout.Basis="50%"
@@ -49,7 +52,9 @@
                             </DataTemplate>
                         </controls:FlexableView.ItemTemplate>
                     </controls:FlexableView>
+
                 </ScrollView>
-            </Grid>
+            </RefreshView>
+        </Grid>
     </ContentView.Content>
 </ContentView>

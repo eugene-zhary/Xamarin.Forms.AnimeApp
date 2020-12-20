@@ -9,7 +9,7 @@ namespace Anime.ViewModels
 
         public int SelectedViewModelIndex {
             get => selectedViewModelIndex;
-            set => SetAndRaise(ref selectedViewModelIndex, value);
+            set => Set(ref selectedViewModelIndex, value);
         }
 
         public BottomTabsViewModel(INavigationService navigationService) : base(navigationService)
