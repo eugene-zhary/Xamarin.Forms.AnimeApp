@@ -28,7 +28,6 @@ namespace Anime.Navigable
         private INavigation FormsNavigation => lazyFormsNavigation.Value.Navigation;
 
 
-
         public async Task<IBindablePage> NavigateBackAsync()
         {
             var page = (IBindablePage)await NavigationPage.PopAsync();
