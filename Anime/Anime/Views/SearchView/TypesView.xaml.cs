@@ -1,5 +1,4 @@
-﻿using Anime.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace Anime.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SearchView : ContentView
+    public partial class TypesView : ContentView
     {
-        public SearchView()
+        public TypesView()
         {
             InitializeComponent();
-            Switcher.SelectedIndex = 0;
         }
     }
 }

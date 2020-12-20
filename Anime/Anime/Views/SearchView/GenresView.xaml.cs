@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Anime.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class GenresTypesView : ContentView
+    public partial class GenresView : ContentView
     {
-        public GenresTypesView()
+        public GenresView()
         {
             InitializeComponent();
         }

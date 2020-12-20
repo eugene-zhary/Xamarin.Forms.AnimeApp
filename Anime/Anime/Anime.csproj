@@ -25,8 +25,8 @@
     <Compile Update="Views\ProfileView\ProfileView.xaml.cs">
       <DependentUpon>ProfileView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\SearchView\GenresTypesView.xaml.cs">
-      <DependentUpon>GenresTypesView.xaml</DependentUpon>
+    <Compile Update="Views\SearchView\TypesView.xaml.cs">
+      <DependentUpon>TypesView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\SearchView\SearchView.xaml.cs">
       <DependentUpon>SearchView.xaml</DependentUpon>
@@ -37,10 +37,13 @@
     <EmbeddedResource Update="Views\BottomTabsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\SearchView\GenresView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\ProfileView\HistoryView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\SearchView\GenresTypesView.xaml">
+    <EmbeddedResource Update="Views\SearchView\TypesView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\HomeTestView.xaml">
