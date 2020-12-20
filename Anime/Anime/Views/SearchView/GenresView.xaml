@@ -5,19 +5,19 @@
              xmlns:controls="clr-namespace:Anime.Controls"
              Padding="10,0,10,0">
     <ContentView.Content>
-            <!--CONTENT-->
-            <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
-                <controls:FlexableView ItemsSource="{Binding DataCollection, Mode=OneWay}" AlignContent="Start" Wrap="Wrap" AlignItems="Center">
-                    <controls:FlexableView.ItemTemplate>
-                        <DataTemplate>
-                            <controls:XFrame BorderWidth="8" FlexLayout.Basis="33.3%"
+        <!--CONTENT-->
+        <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
+            <controls:FlexableView ItemsSource="{Binding DataCollection, Mode=OneWay}" AlignContent="Start" Wrap="Wrap" AlignItems="Center">
+                <controls:FlexableView.ItemTemplate>
+                    <DataTemplate>
+                        <controls:XFrame BorderWidth="8" FlexLayout.Basis="33.3%"
                                                  BorderColor="#941E82" Padding="5" BackgroundColor="#1D1D1B" Margin="5">
-                                <Label Text="{Binding}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HeightRequest="60"
+                            <Label Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HeightRequest="60"
                                            TextColor="#B8A4CF" FontSize="13" LineBreakMode="TailTruncation"/>
-                            </controls:XFrame>
-                        </DataTemplate>
-                    </controls:FlexableView.ItemTemplate>
-                </controls:FlexableView>
-            </ScrollView>
+                        </controls:XFrame>
+                    </DataTemplate>
+                </controls:FlexableView.ItemTemplate>
+            </controls:FlexableView>
+        </ScrollView>
     </ContentView.Content>
 </ContentView>

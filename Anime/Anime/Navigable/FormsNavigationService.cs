@@ -12,7 +12,7 @@ namespace Anime.Navigable
     public class FormsNavigationService : INavigationService
     {
         //The forms navigation service
-        private Lazy<NavigationPage> lazyFormsNavigation;
+        private readonly Lazy<NavigationPage> lazyFormsNavigation;
         //The view locator
         private readonly IViewLocator viewLocator;
 

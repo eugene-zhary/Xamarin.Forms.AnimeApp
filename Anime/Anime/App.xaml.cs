@@ -20,7 +20,6 @@ namespace Anime
             var firstScreenView = viewLocator.GetViewFor<BottomTabsViewModel>();
 
             MainPage = new NavigationPage((Page)firstScreenView);
-            var firstScreenVm = (ANavigableViewModel)firstScreenView.BindingContext;
         }
 
         

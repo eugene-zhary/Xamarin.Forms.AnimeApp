@@ -21,15 +21,6 @@ namespace Anime.ViewModels
         {
             this.Header = "ТОП 100";
             AnimeCollection = new ObservableCollection<AnimeModel>();
-
-            var data = DataService.GetData(DataType.Anime);
-            for (int i = 0; i < data.GetLength(0); i++) {
-                AnimeCollection.Add(new AnimeModel() {
-                    Title = data[i, 0].ToString(),
-                    Rating = data[i, 1].ToString(),
-                    //ImgPath = "https://cdn.myanimelist.net/images/anime/13/17405.jpg"
-                });
-            }
         }
     }
 }

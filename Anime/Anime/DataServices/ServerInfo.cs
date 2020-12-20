@@ -9,9 +9,9 @@ namespace Anime.DataServices
         public static string GetProc(DataType type)
         {
             switch (type) {
-                case DataType.AnimeTypes:
+                case DataType.Types:
                     return "GetTypes";
-                case DataType.AnimeGenrs:
+                case DataType.Genrs:
                     return "GetGenres";
                 case DataType.Anime:
                     return "GetAnime";

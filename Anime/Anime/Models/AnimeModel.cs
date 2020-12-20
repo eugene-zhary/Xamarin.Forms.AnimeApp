@@ -6,7 +6,7 @@ namespace Anime.Models
 {
     public class AnimeModel
     {
-        public string ImgPath { get; set; }
+        public string ImgUrl { get; set; }
         public string Title { get; set; }
         public string Rating { get; set; }
     }

@@ -15,7 +15,7 @@ namespace Anime.ViewModels
         {
             User = new UserModel() {
                 Name = "Евгений",
-                ImgPath = "demoAvatar.jpg",
+                ImgUrl = "demoAvatar.jpg",
                 BDay = new DateTime(2001, 1, 5),
                 Sex = "Male",
                 AboutMe = "software developer from Ukraine"
