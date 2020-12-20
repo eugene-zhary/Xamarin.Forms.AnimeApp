@@ -13,7 +13,7 @@
 
             <!--PANEL DESCRIOPTION-->
             <Label Text="{Binding Header,Mode=OneTime}"  Margin="10,0,0,0"
-                   TextColor="#941E82"  FontSize="18" FontAttributes="Bold" FontFamily="Consolas"/>
+                   TextColor="#B8A4CF"  FontSize="20" FontFamily="Consolas"/>
 
             <!--MAIN PANEL-->
             <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">

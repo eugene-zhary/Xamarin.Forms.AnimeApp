@@ -8,7 +8,6 @@ namespace Anime.DataServices
     {
         AnimeTypes,
         AnimeGenrs,
-        Anime
     };
 
     public class DataService

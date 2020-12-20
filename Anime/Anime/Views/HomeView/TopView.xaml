@@ -12,8 +12,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <!--panel description-->
-            <Label Text="{Binding Header}" Margin="10,0,0,0"
-                           TextColor="#941E82" FontSize="18" FontAttributes="Bold" FontFamily="Consolas"/>
+            <Label Text="{Binding Header}" Margin="10,0,0,0" TextColor="#B8A4CF" FontSize="20" FontFamily="Consolas"/>
 
             <!--main panel-->
 

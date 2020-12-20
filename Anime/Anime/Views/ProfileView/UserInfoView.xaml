@@ -4,7 +4,7 @@
              x:Class="Anime.Views.UserInfoView"
              xmlns:controls="clr-namespace:Anime.Controls">
   <ContentView.Content>
-        <Grid BindingContext="{Binding User,Mode=OneWay}" Margin="10">
+        <Grid BindingContext="{Binding User,Mode=OneWay}" Padding="15">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
