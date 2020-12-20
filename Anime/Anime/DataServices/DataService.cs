@@ -8,7 +8,7 @@ namespace Anime.DataServices
 {
     public static class DataService
     {
-        public static object GetData(DataType type)
+        public static object GetData(DataType type, object user_id = null)
         {
             using (SqlConnection connection = new SqlConnection(ServerInfo.ConnectionPath)) {
                 connection.Open();
@@ -25,11 +25,11 @@ namespace Anime.DataServices
 
                     case DataType.History:
                         //user id
-                        return GetAnime(connection, DataType.History, "@user_id", 1);
+                        return GetAnime(connection, DataType.History, "@user_id", user_id);
 
                     case DataType.User:
                         //user id
-                        return GetUserInfo(connection, DataType.User, "@user_id", 1);
+                        return GetUserInfo(connection, DataType.User, "@user_id", user_id);
 
                     default:
                         throw new Exception("error type");

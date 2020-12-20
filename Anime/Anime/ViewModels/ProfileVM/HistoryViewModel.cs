@@ -16,7 +16,7 @@ namespace Anime.ViewModels
         public HistoryViewModel(INavigationService navigationService) : base(navigationService)
         {
             Header = "ИСТОРИЯ";
-            History = (DataService.GetData(DataType.History) as ObservableCollection<AnimeModel>);
+            History = (DataService.GetData(DataType.History,1) as ObservableCollection<AnimeModel>);
         }
     }
 }
