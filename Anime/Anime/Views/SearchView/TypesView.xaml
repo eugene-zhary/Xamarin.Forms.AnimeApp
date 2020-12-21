@@ -7,13 +7,11 @@
     <ContentView.Content>
         <!--CONTENT-->
         <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
-            <controls:FlexableView ItemsSource="{Binding DataCollection, Mode=OneWay}" AlignContent="Start" Wrap="Wrap" AlignItems="Center">
+            <controls:FlexableView ItemsSource="{Binding DataCollection, Mode=OneWay}" Style="{StaticResource FlexViewStyle}">
                 <controls:FlexableView.ItemTemplate>
                     <DataTemplate>
-                        <controls:XFrame BorderWidth="8" FlexLayout.Basis="33.3%"
-                                                 BorderColor="#941E82" Padding="5" BackgroundColor="#1D1D1B" Margin="5">
-                            <Label Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" HeightRequest="60"
-                                           TextColor="#B8A4CF" FontSize="13" LineBreakMode="TailTruncation"/>
+                        <controls:XFrame Style="{StaticResource ItemFrame}" FlexLayout.Basis="33.3%" Padding="5" Margin="5">
+                            <Label Text="{Binding Name}" Style="{StaticResource ItemTextStyle}" HorizontalTextAlignment="Center" HeightRequest="60"/>
                         </controls:XFrame>
                     </DataTemplate>
                 </controls:FlexableView.ItemTemplate>

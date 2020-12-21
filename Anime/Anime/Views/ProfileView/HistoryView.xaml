@@ -5,45 +5,38 @@
              xmlns:controls="clr-namespace:Anime.Controls"
              xmlns:behaviors="clr-namespace:Anime.Behaviors">
   <ContentView.Content>
-        <Grid RowSpacing="5">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+        <controls:XFrame Style="{StaticResource ContentFrameStyle}">
+            <Grid RowSpacing="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-            <!--PANEL DESCRIOPTION-->
-            <Label Text="{Binding Header,Mode=OneTime}"  Margin="10,0,0,0"
-                   TextColor="#B8A4CF"  FontSize="20" FontFamily="Consolas"/>
+                <!--PANEL DESCRIOPTION-->
+                <Label Text="{Binding Header,Mode=OneTime}"  Style="{StaticResource HeaderLabelStyle}"/>
 
-            <!--MAIN PANEL-->
-            <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
-                <controls:FlexableView ItemsSource="{Binding History, Mode=OneWay}" AlignItems="Stretch" Wrap="NoWrap" Direction="Column">
-                    <!--<controls:FlexableView.Behaviors>
-                        <behaviors:FlexLayoutItemTappedBehavior Command="{Binding TappedOnItem}" Paramater="{Binding}"/>
-                    </controls:FlexableView.Behaviors>-->
-                    <controls:FlexableView.ItemTemplate>
-                        <DataTemplate>
-                            <controls:XFrame Margin="10,5,10,5" BorderWidth="8" Padding="5"
-                                                      BorderColor="#941E82" BackgroundColor="#1D1D1B">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
+                <!--MAIN PANEL-->
+                <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
+                    <controls:FlexableView ItemsSource="{Binding History, Mode=OneWay}" AlignItems="Stretch" Wrap="NoWrap" Direction="Column">
+                        <controls:FlexableView.ItemTemplate>
+                            <DataTemplate>
+                                <controls:XFrame Style="{StaticResource ItemFrame}" Margin="10,5,10,5" Padding="5">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
 
-                                    <Image Source="{Binding ImgUrl}" 
-                                                   WidthRequest="60" HeightRequest="60"
-                                                   Aspect="AspectFill"/>
-                                    <Label Grid.Column="1" FontSize="18" Text="{Binding Title}" VerticalTextAlignment="Center"
-                                                   TextColor="#B8A4CF" Margin="5,0,0,0"/>
-                                </Grid>
-                            </controls:XFrame>
-                        </DataTemplate>
-                    </controls:FlexableView.ItemTemplate>
-                </controls:FlexableView>
-            </ScrollView>
-
-        </Grid>
-      
+                                        <Image Source="{Binding ImgUrl}" Aspect="AspectFill"
+                                                   WidthRequest="60" HeightRequest="60"/>
+                                        <Label Grid.Column="1" Text="{Binding Title}" Style="{StaticResource ItemTextStyle}" FontSize="18" />
+                                    </Grid>
+                                </controls:XFrame>
+                            </DataTemplate>
+                        </controls:FlexableView.ItemTemplate>
+                    </controls:FlexableView>
+                </ScrollView>
+            </Grid>
+        </controls:XFrame>
     </ContentView.Content>
 </ContentView>

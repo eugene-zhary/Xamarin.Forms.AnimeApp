@@ -1,13 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
              x:Class="Anime.Views.ProfileView"
              xmlns:controls="clr-namespace:Anime.Controls"
              xmlns:local="clr-namespace:Anime.Views"
-             BackgroundColor="#1D1D1B">
+             BackgroundColor="{DynamicResource BackColor}">
     <ContentView.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -18,13 +15,8 @@
             <!--USER INFO-->
             <local:UserInfoView BindingContext="{Binding UserInfoViewModel}"/>
 
-            
-            
             <!--HISTORY-->
-            <controls:XFrame Grid.Row="1" MultiCornerRadius="15,15,0,0"
-                             Padding="10,10,10,0" BackgroundColor="#272726">
-                <local:HistoryView BindingContext="{Binding HistoryViewModel}"/>
-            </controls:XFrame>
+            <local:HistoryView Grid.Row="1" BindingContext="{Binding HistoryViewModel}"/>
         </Grid>
     </ContentView.Content>
 </ContentView>
