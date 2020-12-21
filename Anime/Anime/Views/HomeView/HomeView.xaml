@@ -7,7 +7,7 @@
              xmlns:controls="clr-namespace:Anime.Controls"
              xmlns:local="clr-namespace:Anime.Views"
              x:Class="Anime.Views.HomeView"
-             BackgroundColor="#313130">
+             BackgroundColor="#1D1D1B">
     <ContentView.Content>
         <Grid RowSpacing="0">
             <Grid.RowDefinitions>

@@ -32,8 +32,7 @@
                                     </Grid.RowDefinitions>
 
                                     <controls:XFrame BorderWidth="8" Margin="0" Padding="0" BorderColor="#941E82">
-                                        <Image Source="{Binding ImgUrl}" Aspect="AspectFill"
-                                                    HeightRequest="200"/>
+                                        <Image Aspect="AspectFill" HeightRequest="200" Source="{Binding ImgUrl}"/>
                                     </controls:XFrame>
 
                                     <Label Grid.Row="1" Text="{Binding Title}" LineBreakMode="TailTruncation"

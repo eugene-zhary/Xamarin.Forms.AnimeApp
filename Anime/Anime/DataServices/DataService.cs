@@ -91,7 +91,7 @@ namespace Anime.DataServices
                     result.Add(new AnimeModel() {
                         Title = data.GetValue(0).ToString(),
                         Rating = data.GetValue(1).ToString(),
-                        ImgUrl = data.GetValue(2).ToString(),
+                        ImgUrl = data.GetValue(2).ToString()
                     });
                 }
             }
