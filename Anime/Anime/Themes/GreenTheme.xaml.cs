@@ -4,9 +4,9 @@ using Xamarin.Forms.Xaml;
 namespace Anime.Themes
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class VioletTheme : ResourceDictionary
+    public partial class GreenTheme : ResourceDictionary
     {
-        public VioletTheme()
+        public GreenTheme()
         {
             InitializeComponent();
         }
