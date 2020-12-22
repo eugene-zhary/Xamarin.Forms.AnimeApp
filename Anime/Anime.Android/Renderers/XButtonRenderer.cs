@@ -38,8 +38,8 @@ namespace Anime.Droid.Renderers
 				normal.SetStroke((int)borderWidth, button.BorderColor.ToAndroid());
 				normal.SetCornerRadius(borderRadius);
 
-				//понижение яркости BackgroundColor кнопки на 5 процентов
-				var highlight = button.BackgroundColor.AddLuminosity(-0.05).ToAndroid();
+				//повышаем яркости BackgroundColor кнопки на 5 процентов
+				var highlight = button.BackgroundColor.AddLuminosity(0.05).ToAndroid();
 				
 				//нажатое состояние кнопки
 				pressed = new GradientDrawable();
