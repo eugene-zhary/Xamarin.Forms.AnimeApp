@@ -13,7 +13,7 @@
             </Grid.RowDefinitions>
 
             <!--left top right bottom-->
-            <Button Text="Рекомендации" Style="{StaticResource RecBtnStyle}"/>
+            <Button Text="Рекомендации" Style="{StaticResource RecBtnStyle}" Command="{Binding OnTapped}"/>
 
             <local:TopView Grid.Row="1" BindingContext="{Binding TopViewModel}"/>
         </Grid>

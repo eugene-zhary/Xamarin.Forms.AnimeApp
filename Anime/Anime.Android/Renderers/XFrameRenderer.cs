@@ -33,12 +33,11 @@ namespace Anime.Droid.Renderers
                 UpdateCornerRadius();
             }
         }
-        
+
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(XFrame.CornerRadius) || e.PropertyName == nameof(XFrame)) {
-                UpdateCornerRadius();
-            }
+            base.OnElementPropertyChanged(sender, e);
+            UpdateCornerRadius();
         }
 
         public override void Draw(Canvas canvas)

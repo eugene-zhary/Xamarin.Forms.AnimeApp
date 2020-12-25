@@ -13,9 +13,9 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Entry Placeholder="Поиск" Style="{DynamicResource SearchStyle}"/>
+            <Entry Placeholder="Поиск" Style="{StaticResource SearchStyle}"/>
 
-            <controls:XFrame  Grid.Row="1" Style="{DynamicResource ContentFrameStyle}" Padding="0">
+            <controls:XFrame  Grid.Row="1" Style="{StaticResource ContentFrameStyle}" Padding="0">
                 <Grid RowSpacing="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
@@ -36,8 +36,8 @@
                              TabType="Fixed"
                              SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
                         <sho:TabHostView.Tabs>
-                            <sho:UnderlinedTabItem Label="ЖАНРЫ" Style="{StaticResource UnderlinedItemStyle}" LabelSize="20"/>
-                            <sho:UnderlinedTabItem Label="ВИДЫ" Style="{StaticResource UnderlinedItemStyle}" LabelSize="20"/>
+                            <controls:XUnderlinedTabItem Label="ЖАНРЫ" Style="{StaticResource UnderlinedItemStyle}" LabelSize="20"/>
+                            <controls:XUnderlinedTabItem Label="ВИДЫ" Style="{StaticResource UnderlinedItemStyle}" LabelSize="20"/>
                         </sho:TabHostView.Tabs>
                     </sho:TabHostView>
 

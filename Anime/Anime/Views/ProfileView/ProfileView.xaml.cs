@@ -16,6 +16,7 @@ namespace Anime.Views
         public ProfileView()
         {
             InitializeComponent();
+
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Anime.Navigable;
+using SimpleInjector;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -30,7 +31,7 @@ namespace Anime
                                      type =>
                                      type.Namespace.StartsWith("Anime.Views") &&
                                      !type.GetTypeInfo().IsAbstract &&
-                                     type.Name.EndsWith("View"))) {
+                                     type.Name.EndsWith("View"))){
                 container.Register(pageType);
             }
 

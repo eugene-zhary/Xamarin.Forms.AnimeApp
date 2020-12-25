@@ -4,6 +4,7 @@
              x:Class="Anime.Views.BottomTabsView"
              xmlns:view="clr-namespace:Anime.Views"
              xmlns:sho="http://sharpnado.com"
+             xmlns:controls="clr-namespace:Anime.Controls"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <Grid RowSpacing="0">
@@ -27,11 +28,11 @@
                              SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
 
                 <sho:TabHostView.Tabs>
-                    <sho:BottomTabItem IconImageSource="ic_home.png" Style="{StaticResource BottomItemStyle}"/>
+                    <controls:XBottomTabItem IconImageSource="ic_home.png" UnselectedIconColor="{DynamicResource PrimaryColor}" SelectedTabColor="{DynamicResource SubColor}"/>
 
-                    <sho:BottomTabItem IconImageSource="ic_search.png" Style="{StaticResource BottomItemStyle}"/>
+                    <controls:XBottomTabItem IconImageSource="ic_search.png" UnselectedIconColor="{DynamicResource PrimaryColor}" SelectedTabColor="{DynamicResource SubColor}"/>
 
-                    <sho:BottomTabItem IconImageSource="ic_person.png" Style="{StaticResource BottomItemStyle}"/>
+                    <controls:XBottomTabItem IconImageSource="ic_person.png" UnselectedIconColor="{DynamicResource PrimaryColor}" SelectedTabColor="{DynamicResource SubColor}"/>
 
                 </sho:TabHostView.Tabs>
             </sho:TabHostView>

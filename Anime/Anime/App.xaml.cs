@@ -12,6 +12,7 @@ namespace Anime
         public App()
         {
             InitializeComponent();
+            SetHue(0.4);
 
             Sharpnado.Shades.Initializer.Initialize(false);
             Sharpnado.Tabs.Initializer.Initialize(true, false);
@@ -22,7 +23,24 @@ namespace Anime
             MainPage = new NavigationPage((Page)firstScreenView);
         }
 
-        
+        public void SetHue(double hue)
+        {
+            this.Resources["PrimaryColor"] =
+                    Color.FromHsla(hue, 0.8, 0.4);
+
+            this.Resources["SubColor"] =
+                    Color.FromHsla(hue, 0.4, 0.8);
+
+            this.Resources["BackColor"] =
+                    Color.FromHsla(hue, 1, 0.04);
+
+            this.Resources["FrontColor"] =
+                    Color.FromHsla(hue, 1, 0.08);
+
+            this.Resources["TabColor"] =
+                    Color.FromHsla(hue, 1, 0.12);
+        }
+
         protected override void OnStart()
         {
         }

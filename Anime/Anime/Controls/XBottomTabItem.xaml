@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<tabs:TabItem x:Class="Anime.Controls.XBottomTabItem"
+                  xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:effects="http://sharpnado.com"
+                  xmlns:tabs="http://sharpnado.com"
+                  x:Name="RootLayout">
+    <ContentView.Content>
+        <Image x:Name="Icon"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               WidthRequest="{Binding Source={x:Reference RootLayout}, Path=IconSize}"
+               HeightRequest="{Binding Source={x:Reference RootLayout}, Path=IconSize}"
+               effects:ImageEffect.TintColor="{Binding Source={x:Reference RootLayout}, Path=UnselectedIconColor}"
+               Source="{Binding Source={x:Reference RootLayout}, Path=IconImageSource}">
+            <Image.Triggers>
+                <DataTrigger Binding="{Binding Source={x:Reference RootLayout}, Path=IsSelected}"
+                             TargetType="Image" Value="true">
+                    <Setter Property="effects:ImageEffect.TintColor" Value="{Binding Source={x:Reference RootLayout}, Path=SelectedTabColor}" />
+                </DataTrigger>
+            </Image.Triggers>
+        </Image>
+    </ContentView.Content>
+</tabs:TabItem>

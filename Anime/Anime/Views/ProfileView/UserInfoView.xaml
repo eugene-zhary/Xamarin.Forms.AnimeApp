@@ -16,7 +16,7 @@
             </Grid.ColumnDefinitions>
 
             <!--IMAGE-->
-            <controls:XFrame Style="{DynamicResource ItemFrame}" Margin="0" Padding="5">
+            <controls:XFrame Style="{StaticResource ItemFrame}" Margin="0" Padding="5">
                 <Image Source="{Binding ImgUrl,Mode=OneWay}" Aspect="AspectFill" WidthRequest="180" HeightRequest="180"/>
             </controls:XFrame>
 

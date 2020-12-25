@@ -5,7 +5,18 @@
              xmlns:sho="http://sharpnado.com"
              x:Class="Anime.App">
     <Application.Resources>
-        <ResourceDictionary Source="Themes/GreenTheme.xaml">
+        <ResourceDictionary>
+
+            <Color x:Key="PrimaryColor">white</Color>
+
+            <Color x:Key="SubColor">white</Color>
+
+            <Color x:Key="BackColor">white</Color>
+
+            <Color x:Key="FrontColor">white</Color>
+
+            <Color x:Key="TabColor">white</Color>
+
 
             <Style TargetType="controls:XFrame" x:Key="ContentFrameStyle">
                 <Setter Property="BackgroundColor" Value="{DynamicResource FrontColor}"/>
@@ -68,12 +79,6 @@
                 <Setter Property="UnselectedLabelColor" Value="{DynamicResource PrimaryColor}"/>
                 <Setter Property="SelectedTabColor" Value="{DynamicResource SubColor}"/>
                 <Setter Property="LabelSize" Value="20"/>
-            </Style>
-
-            <Style TargetType="sho:BottomTabItem" x:Key="BottomItemStyle">
-                <Setter Property="IsTextVisible" Value="False"/>
-                <Setter Property="UnselectedIconColor" Value="{DynamicResource PrimaryColor}"/>
-                <Setter Property="SelectedTabColor" Value="{DynamicResource SubColor}"/>
             </Style>
 
         </ResourceDictionary>

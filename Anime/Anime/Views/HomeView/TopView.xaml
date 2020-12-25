@@ -5,7 +5,7 @@
              xmlns:behaviors="clr-namespace:Anime.Behaviors"
              x:Class="Anime.Views.TopView">
     <ContentView.Content>
-        <controls:XFrame Style="{StaticResource ContentFrameStyle}">
+        <controls:XFrame Style="{StaticResource ContentFrameStyle}" >
             <Grid RowSpacing="5">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
@@ -18,6 +18,9 @@
 
                 <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
                     <controls:FlexableView ItemsSource="{Binding AnimeCollection}" Style="{StaticResource FlexViewStyle}">
+                        <!--<controls:FlexableView.Behaviors>
+                            <behaviors:FlexLayoutItemTappedBehavior Command="{Binding OnTapped}" Paramater="{Binding}"/>
+                        </controls:FlexableView.Behaviors>-->
                         <controls:FlexableView.ItemTemplate>
                             <DataTemplate>
                                 <controls:XFrame FlexLayout.Basis="50%" Style="{StaticResource ItemFrame}">
@@ -32,9 +35,9 @@
                                         <controls:XFrame Style="{StaticResource ItemFrame}" Margin="0">
                                             <Image Aspect="AspectFill" HeightRequest="200" Source="{Binding ImgUrl}"/>
                                         </controls:XFrame>
-                                        
+
                                         <Label Grid.Row="1" Text="{Binding Title}" Style="{StaticResource ItemTextStyle}"/>
-                                        
+
                                         <Label Grid.Row="2" Text="{Binding Rating, StringFormat='Rate: {0}'}"  Style="{StaticResource ItemTextStyle}"/>
 
                                     </Grid>

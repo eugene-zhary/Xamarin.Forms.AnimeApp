@@ -1,4 +1,5 @@
 ﻿using Anime.Models;
+using Anime.Themes;
 using Anime.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,6 +12,9 @@ namespace Anime.Views
         public HomeView()
         {
             InitializeComponent();
+
+            
+            //(this.Resources["Themes"] as MainTheme).SetHue(1);
         }
     }
 }

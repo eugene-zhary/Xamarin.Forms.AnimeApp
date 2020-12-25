@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<tabs:TabTextItem x:Class="Anime.Controls.XUnderlinedTabItem"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabs="http://sharpnado.com"
+             x:Name="RootLayout">
+    <ContentView.Resources>
+        <Style x:Key="TabTextHeader" TargetType="Label">
+            <Setter Property="LineBreakMode" Value="WordWrap" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+        </Style>
+    </ContentView.Resources>
+
+    <ContentView.Content>
+        <Grid x:Name="Grid" BackgroundColor="Transparent">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <BoxView x:Name="Underline"
+                     HeightRequest="0"
+                     Margin="0,0"
+                     VerticalOptions="End"
+                     CornerRadius="4,4,0,0"
+                     BackgroundColor="Transparent">
+                <BoxView.Triggers>
+                    <DataTrigger Binding="{Binding Source={x:Reference RootLayout}, Path=IsSelected}"
+                                 TargetType="BoxView"
+                                 Value="true">
+                        <Setter Property="BackgroundColor" Value="{Binding Source={x:Reference RootLayout}, Path=SelectedTabColor}" />
+                        <Setter Property="HeightRequest" Value="4" />
+                    </DataTrigger>
+                </BoxView.Triggers>
+            </BoxView>
+            <Label x:Name="Header"
+                   Style="{StaticResource TabTextHeader}"
+                   FontFamily="{Binding Source={x:Reference RootLayout}, Path=FontFamily}"
+                   FontSize="{Binding Source={x:Reference RootLayout}, Path=LabelSize}"
+                   Text="{Binding Source={x:Reference RootLayout}, Path=Label}"
+                   TextColor="{Binding Source={x:Reference RootLayout}, Path=UnselectedLabelColor}">
+                <Label.Triggers>
+                    <DataTrigger Binding="{Binding Source={x:Reference RootLayout}, Path=IsSelected}"
+                                 TargetType="Label"
+                                 Value="true">
+                        <Setter Property="TextColor" Value="{Binding Source={x:Reference RootLayout}, Path=SelectedTabColor}" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+        </Grid>
+    </ContentView.Content>
+</tabs:TabTextItem>

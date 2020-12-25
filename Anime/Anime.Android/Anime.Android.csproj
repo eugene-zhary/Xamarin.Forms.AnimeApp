@@ -76,7 +76,6 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Renderers\XButtonRenderer.cs" />
     <Compile Include="Renderers\XFrameRenderer.cs" />
-    <Compile Include="Renderers\XShellRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
