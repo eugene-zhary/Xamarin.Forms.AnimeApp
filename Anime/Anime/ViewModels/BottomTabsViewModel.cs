@@ -1,4 +1,5 @@
 ﻿using Anime.Navigable;
+using System.Threading.Tasks;
 
 namespace Anime.ViewModels
 {

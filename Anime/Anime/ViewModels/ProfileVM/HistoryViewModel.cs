@@ -1,10 +1,7 @@
 ﻿using Anime.DataServices;
 using Anime.Models;
 using Anime.Navigable;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 
 namespace Anime.ViewModels
 {
@@ -16,7 +13,7 @@ namespace Anime.ViewModels
         public HistoryViewModel(INavigationService navigationService) : base(navigationService)
         {
             Header = "ИСТОРИЯ";
-            History = (DataService.GetData(DataType.History,1) as ObservableCollection<AnimeModel>);
+            History = (DataService.GetData(DataType.History, 1) as ObservableCollection<AnimeModel>);
         }
     }
 }

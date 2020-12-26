@@ -1,5 +1,6 @@
 ﻿using Anime.Navigable;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 

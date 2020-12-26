@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -16,9 +17,8 @@ namespace Anime.ViewModels
 
         public ProfileViewModel(INavigationService navigationService) : base(navigationService)
         {
-            HistoryViewModel = new HistoryViewModel(navigationService);
             UserInfoViewModel = new UserInfoViewModel(navigationService);
+            HistoryViewModel = new HistoryViewModel(navigationService);
         }
-
     }
 }

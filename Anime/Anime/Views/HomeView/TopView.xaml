@@ -17,7 +17,7 @@
                 <!--main panel-->
 
                 <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
-                    <controls:FlexableView ItemsSource="{Binding AnimeCollection}" Style="{StaticResource FlexViewStyle}">
+                    <controls:FlexableView ItemsSource="{Binding AnimeCollection, Mode=TwoWay}" Style="{StaticResource FlexViewStyle}">
                         <!--<controls:FlexableView.Behaviors>
                             <behaviors:FlexLayoutItemTappedBehavior Command="{Binding OnTapped}" Paramater="{Binding}"/>
                         </controls:FlexableView.Behaviors>-->

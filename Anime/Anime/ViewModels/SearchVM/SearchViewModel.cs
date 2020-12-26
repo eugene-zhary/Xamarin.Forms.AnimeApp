@@ -23,5 +23,6 @@ namespace Anime.ViewModels
 
         public TypesViewModel TypesViewModel { get; set; }
         public GenresViewModel GenresViewModel { get; set; }
+
     }
 }

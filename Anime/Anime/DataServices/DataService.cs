@@ -3,6 +3,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Threading.Tasks;
 
 namespace Anime.DataServices
 {
@@ -12,6 +13,7 @@ namespace Anime.DataServices
         {
             using (SqlConnection connection = new SqlConnection(ServerInfo.ConnectionPath)) {
                 connection.Open();
+
 
                 switch (type) {
                     case DataType.Genrs:
@@ -37,7 +39,7 @@ namespace Anime.DataServices
             }
         }
 
-        private static object GetUserInfo(SqlConnection connection, DataType type, string name, object value)
+        private static object GetUserInfo(in SqlConnection connection, DataType type, string name, object value)
         {
             var result = new UserModel();
 
@@ -115,5 +117,6 @@ namespace Anime.DataServices
 
             return result;
         }
+
     }
 }

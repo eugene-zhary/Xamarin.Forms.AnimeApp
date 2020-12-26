@@ -2,6 +2,7 @@
 using Anime.ViewModels;
 using Anime.Views;
 using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,7 +13,7 @@ namespace Anime
         public App()
         {
             InitializeComponent();
-            SetHue(0.4);
+            SetHue(new Random().NextDouble());
 
             Sharpnado.Shades.Initializer.Initialize(false);
             Sharpnado.Tabs.Initializer.Initialize(true, false);

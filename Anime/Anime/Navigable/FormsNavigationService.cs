@@ -1,9 +1,7 @@
 ﻿using Anime.ViewModels;
 using Anime.Views;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -38,7 +36,6 @@ namespace Anime.Navigable
         {
             var view = viewLocator.GetViewFor<TViewModel>();
             await NavigationPage.PushAsync((Page)view);
-            //((ANavigableViewModel)view.BindingContext).Load();
 
             foreach (var page in FormsNavigation
                                             .NavigationStack
@@ -62,7 +59,6 @@ namespace Anime.Navigable
                 }
                 //Then we want to go back to root page and clear the stack
                 await NavigationPage.PopToRootAsync(animated);
-                //((ANavigableViewModel)rootPage.BindingContext).Load();
                 return;
             }
         }

@@ -11,6 +11,7 @@ namespace Anime.Views
         {
             InitializeComponent();
             Switcher.SelectedIndex = 0;
+
         }
     }
 }

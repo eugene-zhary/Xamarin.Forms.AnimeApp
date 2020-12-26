@@ -1,7 +1,11 @@
 ﻿using Anime.DataServices;
 using Anime.Models;
 using Anime.Navigable;
+using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace Anime.ViewModels
 {
@@ -14,7 +18,22 @@ namespace Anime.ViewModels
         public TopViewModel(INavigationService navigationService) : base(navigationService)
         {
             this.Header = "ТОП 100";
-            AnimeCollection = (DataService.GetData(DataType.Anime) as ObservableCollection<AnimeModel>);
+            AnimeCollection = new ObservableCollection<AnimeModel>();
+
+            MainThread.BeginInvokeOnMainThread(async () => {
+                await Load();
+            });
+        }
+
+        async Task Load()
+        {
+            var data = DataService.GetData(DataType.Anime) as ObservableCollection<AnimeModel>;
+
+            foreach (var item in data) {
+                AnimeCollection.Add(item);
+            }
+
+            await Task.Delay(5000);
         }
     }
 }

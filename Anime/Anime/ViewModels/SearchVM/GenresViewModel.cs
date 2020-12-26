@@ -18,6 +18,5 @@ namespace Anime.ViewModels
             this.Header = "ЖАНРЫ";
             this.DataCollection = (DataService.GetData(DataType.Genrs) as ObservableCollection<CategoryModel>);
         }
-
     }
 }
