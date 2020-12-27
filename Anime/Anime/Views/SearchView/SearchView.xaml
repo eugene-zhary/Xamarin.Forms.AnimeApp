@@ -13,7 +13,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Entry Placeholder="Поиск" Style="{StaticResource SearchStyle}"/>
+            <controls:XEntry Placeholder="Поиск" Style="{StaticResource SearchStyle}"/>
 
             <controls:XFrame  Grid.Row="1" Style="{StaticResource ContentFrameStyle}" Padding="0">
                 <Grid RowSpacing="0">

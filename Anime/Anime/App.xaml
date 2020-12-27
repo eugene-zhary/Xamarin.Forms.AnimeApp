@@ -55,7 +55,17 @@
                 <Setter Property="Margin" Value="10"/>
             </Style>
 
-            <Style TargetType="Entry" x:Key="SearchStyle">
+            <Style TargetType="controls:XEntry" x:Key="SearchStyle">
+                <Setter Property="XHandleColor" Value="{DynamicResource PrimaryColor}"/>
+                <Setter Property="XHighlightColor" Value="{DynamicResource PrimaryColor}"/>
+                <Setter Property="XTintColor" Value="{DynamicResource PrimaryColor}"/>
+                <Setter Property="XBorderThickness" Value="4"/>
+                <Setter Property="XCornerRadius" Value="13"/>
+                <Setter Property="XPadding" Value="15,10"/>
+
+                <Setter Property="TextColor" Value="{DynamicResource SubColor}"/>
+                <Setter Property="PlaceholderColor" Value="{DynamicResource SubColor}"/>
+
                 <Setter Property="Margin" Value="10"/>
                 <Setter Property="HeightRequest" Value="65"/>
                 <Setter Property="FontSize" Value="18"/>
