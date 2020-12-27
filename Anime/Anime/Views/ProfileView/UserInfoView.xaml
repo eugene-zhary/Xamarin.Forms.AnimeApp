@@ -3,55 +3,50 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Anime.Views.UserInfoView"
              xmlns:controls="clr-namespace:Anime.Controls">
-  <ContentView.Content>
+    <ContentView.Content>
+        <Grid BindingContext="{Binding User, Mode=TwoWay}" Padding="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <StackLayout>
-            <Grid BindingContext="{Binding User, Mode=TwoWay}" Padding="15">
+            <!--IMAGE-->
+            <controls:XFrame Style="{StaticResource ItemFrame}" Margin="0" Padding="5">
+                <Image Source="{Binding ImgUrl,Mode=OneWay}" Aspect="AspectFill" WidthRequest="180" HeightRequest="180"/>
+            </controls:XFrame>
+
+            <!--NAME, BDAY, SEX-->
+            <Grid Grid.Column="1" Margin="0,5,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
 
-                <!--IMAGE-->
-                <controls:XFrame Style="{StaticResource ItemFrame}" Margin="0" Padding="5">
-                    <Image Source="{Binding ImgUrl,Mode=OneWay}" Aspect="AspectFill" WidthRequest="180" HeightRequest="180"/>
-                </controls:XFrame>
+                <Label Text="{Binding Name,Mode=OneWay}" Style="{StaticResource ItemTextStyle}" FontSize="18"/>
+                <Label Grid.Row="1" Text="Username" Style="{StaticResource DescLabelStyle}"/>
 
-                <!--NAME, BDAY, SEX-->
-                <Grid Grid.Column="1" Margin="0,5,0,0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                    </Grid.RowDefinitions>
-
-                    <Label Text="{Binding Name,Mode=OneWay}" Style="{StaticResource ItemTextStyle}" FontSize="18"/>
-                    <Label Grid.Row="1" Text="Username" Style="{StaticResource DescLabelStyle}"/>
-
-                    <Label Grid.Row="2" Text="{Binding BDay, StringFormat='{0:d}',Mode=OneWay}" Style="{StaticResource ItemTextStyle}"/>
-                    <Label Grid.Row="3" Text="BDay" Style="{StaticResource DescLabelStyle}"/>
+                <Label Grid.Row="2" Text="{Binding BDay, StringFormat='{0:d}',Mode=OneWay}" Style="{StaticResource ItemTextStyle}"/>
+                <Label Grid.Row="3" Text="BDay" Style="{StaticResource DescLabelStyle}"/>
 
 
-                    <Label Grid.Row="4" Text="{Binding Sex,Mode=OneWay}" Style="{StaticResource ItemTextStyle}"/>
-                    <Label Grid.Row="5" Text="Sex" Style="{StaticResource DescLabelStyle}"/>
-                </Grid>
-
-                <!--BIOGRAPHY-->
-                <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding AboutMe,Mode=OneWay}"
-                   Style="{StaticResource ItemTextStyle}" Margin="5,5,0,0"/>
-
-                <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Text="Bio" Style="{StaticResource DescLabelStyle}"/>
+                <Label Grid.Row="4" Text="{Binding Sex,Mode=OneWay}" Style="{StaticResource ItemTextStyle}"/>
+                <Label Grid.Row="5" Text="Sex" Style="{StaticResource DescLabelStyle}"/>
             </Grid>
-            <Button Style="{StaticResource RecBtnStyle}" Text="настройки" Command="{Binding SettingsCommand}"/>
-        </StackLayout>
-       
+
+            <!--BIOGRAPHY-->
+            <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding AboutMe,Mode=OneWay}"
+               Style="{StaticResource ItemTextStyle}" Margin="5,5,0,0"/>
+
+            <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Text="Bio" Style="{StaticResource DescLabelStyle}"/>
+        </Grid>
     </ContentView.Content>
 </ContentView>

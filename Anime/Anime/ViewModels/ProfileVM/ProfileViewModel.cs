@@ -1,10 +1,4 @@
-﻿using Anime.Models;
-using Anime.Navigable;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Anime.Navigable;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -20,5 +14,9 @@ namespace Anime.ViewModels
             UserInfoViewModel = new UserInfoViewModel(navigationService);
             HistoryViewModel = new HistoryViewModel(navigationService);
         }
+
+        public ICommand SettingsCommand => new Command(() => {
+            NavigationService.NavigateFromMenuToAsync<SettingsViewModel>();
+        });
     }
 }
