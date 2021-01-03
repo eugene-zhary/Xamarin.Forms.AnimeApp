@@ -13,7 +13,13 @@ namespace Anime
         public App()
         {
             InitializeComponent();
-            SetHue(new Random().NextDouble());
+
+            if (App.Current.Properties.ContainsKey("hue")) {
+                SetHue((double)App.Current.Properties["hue"]);
+            }
+            else {
+                SetHue(0.0d);
+            }
 
             Sharpnado.Shades.Initializer.Initialize(false);
             Sharpnado.Tabs.Initializer.Initialize(true, false);
@@ -24,23 +30,29 @@ namespace Anime
             MainPage = new NavigationPage((Page)firstScreenView);
         }
 
-        public void SetHue(double hue)
+        public static void SetHue(double hue)
         {
-            this.Resources["PrimaryColor"] =
-                    Color.FromHsla(hue, 0.8, 0.4);
+            App.Current.Resources["PrimaryColor"] =
+                   Color.FromHsla(hue, 0.8, 0.4);
 
-            this.Resources["SubColor"] =
+            App.Current.Resources["SubColor"] =
                     Color.FromHsla(hue, 0.4, 0.8);
 
-            this.Resources["BackColor"] =
+            App.Current.Resources["BackColor"] =
                     Color.FromHsla(hue, 1, 0.04);
 
-            this.Resources["FrontColor"] =
+            App.Current.Resources["FrontColor"] =
                     Color.FromHsla(hue, 1, 0.08);
 
-            this.Resources["TabColor"] =
+            App.Current.Resources["TabColor"] =
                     Color.FromHsla(hue, 1, 0.12);
+
+            App.Current.Properties["hue"] = hue;
         }
+
+        public static double GetHue() => (App.Current.Properties.ContainsKey("hue")) ?
+            (double)App.Current.Properties["hue"] : 0.0d;
+
 
         protected override void OnStart()
         {
