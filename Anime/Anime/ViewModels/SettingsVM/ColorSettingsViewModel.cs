@@ -22,7 +22,5 @@ namespace Anime.ViewModels
         {
             this.hueValue = App.GetHue();
         }
-
-
     }
 }

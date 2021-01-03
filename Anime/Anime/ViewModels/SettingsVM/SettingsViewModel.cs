@@ -8,10 +8,12 @@ namespace Anime.ViewModels
 {
     public class SettingsViewModel : ANavigableViewModel
     {
+        public AccountSettingsViewModel AccountSettingsViewModel { get; set; }
         public ColorSettingsViewModel ColorSettingsViewModel { get; set; }
 
         public SettingsViewModel(INavigationService navigationService) : base(navigationService)
         {
+            this.AccountSettingsViewModel = new AccountSettingsViewModel(navigationService);
             this.ColorSettingsViewModel = new ColorSettingsViewModel();
         }
     }

@@ -14,8 +14,17 @@
 
             <Label Margin="10,15" Text="Settings" FontSize="20" HorizontalOptions="Center" TextColor="{DynamicResource PrimaryColor}"/>
 
-            <local:ColorSettingsView Grid.Row="1" BindingContext="{Binding ColorSettingsViewModel}"/>
+            <controls:XFrame Grid.Row="1" Style="{StaticResource ContentFrameStyle}">
+                <Grid Grid.Row="1" RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
 
+                    <local:AccountSettingsView Grid.Row="0" BindingContext="{Binding AccountSettingsViewModel}"/>
+                    <local:ColorSettingsView Grid.Row="1" BindingContext="{Binding ColorSettingsViewModel}"/>
+                </Grid>
+            </controls:XFrame>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

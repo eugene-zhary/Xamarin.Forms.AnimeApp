@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Anime.Views.AccountSettingsView">
+    
+    <ContentView.Content>
+        <Grid BindingContext="{Binding User}" RowSpacing="5">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                
+                <RowDefinition/>
+                <RowDefinition/>
+                
+                <RowDefinition/>
+                <RowDefinition/>
+                
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            
+            <Label Grid.Row="0" Text="{Binding Name}" Style="{StaticResource ItemTextStyle}"/>
+            <Label Grid.Row="1" Text="Username" Style="{StaticResource DescLabelStyle}"/>
+
+            <Label Grid.Row="2" Text="{Binding BDay, StringFormat='{0:d}',Mode=OneWay}" Style="{StaticResource ItemTextStyle}"/>
+            <Label Grid.Row="3" Text="BDay" Style="{StaticResource DescLabelStyle}"/>
+
+            <Label Grid.Row="4" Text="{Binding Sex}" Style="{StaticResource ItemTextStyle}"/>
+            <Label Grid.Row="5" Text="Sex" Style="{StaticResource DescLabelStyle}"/>
+
+            <Label Grid.Row="6" Text="{Binding AboutMe}" Style="{StaticResource ItemTextStyle}"/>
+            <Label Grid.Row="7" Text="About Me" Style="{StaticResource DescLabelStyle}"/>
+
+        </Grid>
+    </ContentView.Content>
+</ContentView>

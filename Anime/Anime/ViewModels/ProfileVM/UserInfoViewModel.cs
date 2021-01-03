@@ -10,7 +10,7 @@ namespace Anime.ViewModels
 
         public UserInfoViewModel(INavigationService navigationService) : base(navigationService)
         {
-            User = (DataService.GetData(DataType.User, 1) as UserModel);
+            User = new UserModel(1);
         }
     }
 }

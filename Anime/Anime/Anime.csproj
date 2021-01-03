@@ -43,7 +43,10 @@
     <EmbeddedResource Update="Controls\XUnderlinedTabItem.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ColorSettingsView.xaml">
+    <EmbeddedResource Update="Views\SettingsView\AccountSettingsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SettingsView\ColorSettingsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SettingsView\SettingsView.xaml">

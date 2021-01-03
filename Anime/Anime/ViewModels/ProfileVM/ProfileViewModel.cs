@@ -1,4 +1,6 @@
-﻿using Anime.Navigable;
+﻿using Anime.DataServices;
+using Anime.Models;
+using Anime.Navigable;
 using System.Windows.Input;
 using Xamarin.Forms;
 
