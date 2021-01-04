@@ -2,36 +2,35 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Anime.Views.AccountSettingsView">
-    
+
     <ContentView.Content>
-        <Grid BindingContext="{Binding User}" RowSpacing="5">
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                
-                <RowDefinition/>
-                <RowDefinition/>
-                
-                <RowDefinition/>
-                <RowDefinition/>
-                
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="224"/>
             </Grid.RowDefinitions>
 
-            
-            <Label Grid.Row="0" Text="{Binding Name}" Style="{StaticResource ItemTextStyle}"/>
-            <Label Grid.Row="1" Text="Username" Style="{StaticResource DescLabelStyle}"/>
+            <Label Text="Account" Style="{StaticResource HeaderLabelStyle}"/>
 
-            <Label Grid.Row="2" Text="{Binding BDay, StringFormat='{0:d}',Mode=OneWay}" Style="{StaticResource ItemTextStyle}"/>
-            <Label Grid.Row="3" Text="BDay" Style="{StaticResource DescLabelStyle}"/>
+            <ListView Grid.Row="1" x:Name="settings_list" ItemsSource="{Binding UserFields}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                      SeparatorVisibility="Default" ItemSelected="ListView_ItemSelected"
+                      SelectionMode="Single" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="25"/>
+                                </Grid.RowDefinitions>
 
-            <Label Grid.Row="4" Text="{Binding Sex}" Style="{StaticResource ItemTextStyle}"/>
-            <Label Grid.Row="5" Text="Sex" Style="{StaticResource DescLabelStyle}"/>
-
-            <Label Grid.Row="6" Text="{Binding AboutMe}" Style="{StaticResource ItemTextStyle}"/>
-            <Label Grid.Row="7" Text="About Me" Style="{StaticResource DescLabelStyle}"/>
-
+                                <Label Grid.Row="0" Text="{Binding FieldName}" Style="{StaticResource ItemTextStyle}"/>
+                                <Label Grid.Row="1" Text="{Binding Header}" Style="{StaticResource DescLabelStyle}" Margin="10,0,0,0"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
     </ContentView.Content>
 </ContentView>

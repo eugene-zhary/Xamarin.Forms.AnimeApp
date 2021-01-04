@@ -42,7 +42,7 @@
                         </sho:TabHostView.Tabs>
                     </sho:TabHostView>
 
-                    <sho:ViewSwitcher Grid.ColumnSpan="3" Grid.Row="1" Margin="0,15,0,0" x:Name="Switcher" Animate="False" SelectedIndex="{Binding SelectedViewModelIndex,Mode=TwoWay}">
+                    <sho:ViewSwitcher Grid.ColumnSpan="3" Grid.Row="1" Margin="0,15,0,0" x:Name="Switcher" Animate="True" SelectedIndex="{Binding SelectedViewModelIndex,Mode=TwoWay}">
                         <sho:LazyView x:TypeArguments="local:GenresView" BindingContext="{Binding GenresViewModel}"/>
                         <sho:LazyView x:TypeArguments="local:TypesView" BindingContext="{Binding TypesViewModel}"/>
                     </sho:ViewSwitcher>

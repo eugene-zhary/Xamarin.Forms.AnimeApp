@@ -16,5 +16,10 @@ namespace Anime.Views
         {
             InitializeComponent();
         }
+
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            settings_list.SelectedItem = null;
+        }
     }
 }

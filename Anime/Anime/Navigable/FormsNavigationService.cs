@@ -36,7 +36,7 @@ namespace Anime.Navigable
         {
             var view = viewLocator.GetViewFor<TViewModel>();
             await NavigationPage.PushAsync((Page)view);
-
+            
             foreach (var page in FormsNavigation
                                             .NavigationStack
                                             .Take(FormsNavigation.NavigationStack.Count -1)
