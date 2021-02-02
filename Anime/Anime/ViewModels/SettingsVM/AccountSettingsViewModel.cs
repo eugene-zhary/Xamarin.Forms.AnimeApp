@@ -1,10 +1,6 @@
 ﻿using Anime.Models;
 using Anime.Navigable;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
-using Xamarin.Forms;
 
 namespace Anime.ViewModels
 {
@@ -37,22 +33,22 @@ namespace Anime.ViewModels
             switch (item.Header) {
                 case "Username":
                     App.Current.MainPage.DisplayPromptAsync( title:item.Header, message: "edit username:", 
-                        placeholder: item.FieldName, maxLength: 16,
+                        placeholder: "username", maxLength: 16,
                         cancel: "cancel",accept: "accept").GetAwaiter();
                     break;
                 case "BDay":
                     App.Current.MainPage.DisplayPromptAsync(title: item.Header, message: "edit bday:",
-                        placeholder: item.FieldName, maxLength: 12,
+                        placeholder: "dd.mm.yyyy", maxLength: 12,
                         cancel: "cancel", accept: "accept").GetAwaiter();
                     break;
                 case "Sex":
                     App.Current.MainPage.DisplayPromptAsync(title: item.Header, message: "change sex:",
-                        placeholder: item.FieldName, maxLength: 32,
+                        placeholder: "sex", maxLength: 32,
                         cancel: "cancel", accept: "accept").GetAwaiter();
                     break;
                 case "About me":
                     App.Current.MainPage.DisplayPromptAsync(title: item.Header, message: "edit bio:",
-                        placeholder: item.FieldName, maxLength: 128,
+                        placeholder: "bio", maxLength: 128,
                         cancel: "cancel", accept: "accept").GetAwaiter();
                     break;
 

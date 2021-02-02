@@ -13,7 +13,7 @@
             <Label Text="Account" Style="{StaticResource HeaderLabelStyle}"/>
 
             <ListView Grid.Row="1" x:Name="settings_list" ItemsSource="{Binding UserFields}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
-                      SeparatorVisibility="Default" ItemSelected="ListView_ItemSelected"
+                      SeparatorVisibility="Default" ItemSelected="ListView_ItemSelected" CachingStrategy="RecycleElement"
                       SelectionMode="Single" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>

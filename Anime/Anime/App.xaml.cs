@@ -1,10 +1,6 @@
 ﻿using Anime.Navigable;
 using Anime.ViewModels;
-using Anime.Views;
-using System;
-using Xamarin.Essentials;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Anime
 {
